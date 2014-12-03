@@ -12,6 +12,14 @@ int main( int argc, char* args[] )
 	int screen_width = 640;
 	int screen_height = 480;
 
+
+	// Declare our game states here
+	enum {
+		NONE,
+		MAIN_MENU,
+		GAME
+	};
+	
 	eflat game;
 	game.quit();	
 	return 0;
