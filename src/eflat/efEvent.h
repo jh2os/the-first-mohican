@@ -1,7 +1,7 @@
 #ifndef _CEVENT_H_
     #define _CEVENT_H_
  
-#include <SDL.h>
+#include <SDL2/SDL.h>
  
 class efEvent {
     public:
@@ -12,12 +12,12 @@ class efEvent {
         virtual void OnEvent(SDL_Event* Event);
  
         virtual void OnInputFocus();
- 
+
         virtual void OnInputBlur();
  
-        virtual void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
+        virtual void OnKeyDown(SDL_Keycode sym);
  
-        virtual void OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode);
+        virtual void OnKeyUp(SDL_Keycode sym);
  
         virtual void OnMouseFocus();
  
@@ -53,7 +53,7 @@ class efEvent {
  
         virtual void OnRestore();
  
-        virtual void OnResize(int w,int h);
+       // virtual void OnResize(int w,int h);
  
         virtual void OnExpose();
  

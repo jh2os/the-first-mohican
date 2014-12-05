@@ -1,5 +1,5 @@
 #OBJS specifies which files to compile as part of the project
-OBJS = main.cpp eflat/eflat.h eflat/eflat.cpp
+OBJS = main.cpp eflat/*
 
 #CC specifies which compiler we're using
 CC = g++

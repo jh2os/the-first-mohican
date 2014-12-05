@@ -9,6 +9,7 @@ eflat::eflat() {
 eflat::eflat(int width, int height) {
 	windowWidth = width;
 	windowHeight = height;
+	running = true;
 	init();
 }
 
@@ -27,7 +28,6 @@ void eflat::init() {
 			printf( "window could not be created! SDL_Error: %s\n", SDL_GetError() );
 		}
 		else {
-	
 			//Get window surface
 			gameSurface = SDL_GetWindowSurface( gameWindow );
 			
@@ -35,12 +35,25 @@ void eflat::init() {
 	
 			SDL_UpdateWindowSurface(gameWindow);
 
-			SDL_Delay(2000);
+			onLoop();
+			//	SDL_Delay(2000);
 		}
 	}
 }
 
-int eflat::quit() {
+void eflat::onLoop() {
+	SDL_Event Event;
+	while (running) {
+		while(SDL_PollEvent(&Event)) {
+			onEvent(&Event);
+		}
+	}
+}
+void eflat::onEvent(SDL_Event* Event) {
+	efEvent::OnEvent(Event);
+}
+
+void eflat::OnExit() {
 
 	//Destroy window
 	SDL_DestroyWindow( gameWindow );
@@ -48,5 +61,5 @@ int eflat::quit() {
 	// Quit SDL
 	SDL_Quit();
 
-	return 0;
+	running = false;
 }

@@ -1,9 +1,11 @@
 #include <SDL2/SDL.h>
+#include "efEvent.h"
 
-class eflat {
+class eflat : efEvent {
 
 	public:
 
+	bool running;
 	int windowWidth;
 	int windowHeight;
 
@@ -14,6 +16,8 @@ class eflat {
 	eflat();
 	eflat(int width, int height);
 	
-	void init();	
-	int quit();
+	void init();
+	void onLoop();
+	void onEvent(SDL_Event* Event);	
+	void OnExit();
 };

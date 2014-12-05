@@ -9,8 +9,8 @@ efEvent::~efEvent() {
  
 void efEvent::OnEvent(SDL_Event* Event) {
     switch(Event->type) {
-        case SDL_ACTIVEEVENT: {
-            switch(Event->active.state) {
+        /*case SDL_WINDOWEVENT: {
+            switch(Event->window.event) {
                 case SDL_APPMOUSEFOCUS: {
                     if ( Event->active.gain )    OnMouseFocus();
                     else                OnMouseBlur();
@@ -31,15 +31,15 @@ void efEvent::OnEvent(SDL_Event* Event) {
                 }
             }
             break;
-        }
+        }*/
  
         case SDL_KEYDOWN: {
-            OnKeyDown(Event->key.keysym.sym,Event->key.keysym.mod,Event->key.keysym.unicode);
+            OnKeyDown(Event->key.keysym.sym);
             break;
         }
  
         case SDL_KEYUP: {
-            OnKeyUp(Event->key.keysym.sym,Event->key.keysym.mod,Event->key.keysym.unicode);
+            OnKeyUp(Event->key.keysym.sym);
             break;
         }
  
@@ -118,7 +118,8 @@ void efEvent::OnEvent(SDL_Event* Event) {
             break;
         }
  
-        case SDL_VIDEORESIZE: {
+	//Fix this later
+        /*case SDL_VIDEORESIZE: {
             OnResize(Event->resize.w,Event->resize.h);
             break;
         }
@@ -126,7 +127,7 @@ void efEvent::OnEvent(SDL_Event* Event) {
         case SDL_VIDEOEXPOSE: {
             OnExpose();
             break;
-        }
+        }*/
  
         default: {
             OnUser(Event->user.type,Event->user.code,Event->user.data1,Event->user.data2);
@@ -143,11 +144,11 @@ void efEvent::OnInputBlur() {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {
+void efEvent::OnKeyDown(SDL_Keycode) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode) {
+void efEvent::OnKeyUp(SDL_Keycode) {
     //Pure virtual, do nothing
 }
  
@@ -218,10 +219,10 @@ void efEvent::OnMinimize() {
 void efEvent::OnRestore() {
     //Pure virtual, do nothing
 }
- 
+/* 
 void efEvent::OnResize(int w,int h) {
     //Pure virtual, do nothing
-}
+}*/
  
 void efEvent::OnExpose() {
     //Pure virtual, do nothing
