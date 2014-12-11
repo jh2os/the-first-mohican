@@ -19,8 +19,9 @@ int main( int argc, char* args[] )
 	engine.OnLoop();
 	
 	// do any necessary clean-up
-	engine.OnExit();
-	
+	//engine.OnExit();
+	// This is called automatically when the window is closed
+
 	// done
 	return 0;
 }

@@ -70,10 +70,13 @@ void eflat::OnEvent(SDL_Event* Event) {
 }
 
 void eflat::OnExit() {
+
 	// I don't know why we are doing this
-	//AppStateManager::SetActiveAppState(0);
+	// === This function automatically deactivates the appstate
+	// === and clears the pointer to avoid segfaults
+	AppStateManager::SetActiveAppState(0);
 	// deactivate the state
-	AppStateManager::OnDeactivate();
+	//AppStateManager::OnDeactivate();
 	
 	SDL_FreeSurface(gameSurface);	
 	//Destroy window
