@@ -22,6 +22,7 @@ void AppMainMenu::OnActivate() {
 }
 
 void AppMainMenu::OnDeactivate() {
+	std::cout << "deactivating main menu state" << std::endl;
 	// Free font
         TTF_CloseFont(font);
 

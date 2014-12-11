@@ -70,12 +70,15 @@ void eflat::OnEvent(SDL_Event* Event) {
 }
 
 void eflat::OnExit() {
-	AppStateManager::SetActiveAppState(0);
+	// I don't know why we are doing this
+	//AppStateManager::SetActiveAppState(0);
+	// deactivate the state
+	AppStateManager::OnDeactivate();
 	
 	SDL_FreeSurface(gameSurface);	
 	//Destroy window
 	SDL_DestroyWindow( gameWindow );
-
+	
 	// Quit SDL
 	SDL_Quit();
 
