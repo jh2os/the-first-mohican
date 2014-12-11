@@ -1,6 +1,7 @@
 #include "AppMainMenu.h"
 #include "eflat/appStateManager.h"
 #include <iostream>
+#include "AppStates.h"
 
 AppMainMenu AppMainMenu::Instance;
 
@@ -50,7 +51,8 @@ void AppMainMenu::OnKeyDown(SDL_Keycode key) {
 	std::cout << key << std::endl;
 	switch(key) {
 		case SDLK_RIGHT: {
-			AppStateManager::SetActiveAppState(2);
+			// go to the main game
+			AppStateManager::SetActiveAppState(APP_MAIN_GAME);
 			break;		
 		}
 	}

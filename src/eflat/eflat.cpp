@@ -74,7 +74,7 @@ void eflat::OnExit() {
 	// I don't know why we are doing this
 	// === This function automatically deactivates the appstate
 	// === and clears the pointer to avoid segfaults
-	AppStateManager::SetActiveAppState(0);
+	AppStateManager::SetActiveAppState(APP_NONE);
 	// deactivate the state
 	//AppStateManager::OnDeactivate();
 	
