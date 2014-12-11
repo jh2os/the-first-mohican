@@ -9,11 +9,11 @@ void AppStateManager::OnEvent(SDL_Event* Event) {
 }
 
 void AppStateManager::OnActivate(){
-  if (ActiveAppState) ActiveAppState->OnActivate();
+	if (ActiveAppState) ActiveAppState->OnActivate();
 }
 
 void AppStateManager::OnDeactivate(){
-  if (ActiveAppState) ActiveAppState->OnDeactivate();
+	if (ActiveAppState) ActiveAppState->OnDeactivate();
 }
 
 void AppStateManager::OnLoop() {

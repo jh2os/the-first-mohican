@@ -5,15 +5,28 @@
 AppMainMenu AppMainMenu::Instance;
 
 AppMainMenu::AppMainMenu() {
-//	Box = NULL;
+	// Box = NULL;
+	std::cout << "constructor" << std::endl;
+	// nothing to set up
 }
 
+// I am assuming this is the init method
 void AppMainMenu::OnActivate() {
-
+	// set up ttf
+	if(TTF_Init() == -1){
+		printf("SDL_ttf could not initialize! SDL_Error: %s\n", SDL_GetError() );
+	}
+	else{
+		font = TTF_OpenFont("ttf/Transformers-Movie.ttf", 32);
+	}
 }
 
 void AppMainMenu::OnDeactivate() {
+	// Free font
+        TTF_CloseFont(font);
 
+        // Quit TTF
+        TTF_Quit();
 }
 
 /*void AppMainMenu::OnEvent(SDL_Event* Event) {
@@ -21,11 +34,15 @@ void AppMainMenu::OnDeactivate() {
 }*/
 
 void AppMainMenu::OnLoop() {
-	
+	// NOTE: I don't think we need this, at least in this class
+	std::cout << "test" << std::endl;
 }
 
 void AppMainMenu::OnRender(SDL_Surface* Display) {
-     SDL_FillRect( Display, NULL, SDL_MapRGB( Display->format, 0xFF, 0xFF, 0xFF) );
+	// clear screen
+	SDL_FillRect( Display, NULL, SDL_MapRGB( Display->format, 0xCC, 0xCC, 0xCC) );
+	// display what we want
+	
 }
 
 void AppMainMenu::OnKeyDown(SDL_Keycode key) {
@@ -34,7 +51,7 @@ void AppMainMenu::OnKeyDown(SDL_Keycode key) {
 		case SDLK_RIGHT: {
 			AppStateManager::SetActiveAppState(2);
 			break;		
-}
+		}
 	}
 }
 

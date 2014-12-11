@@ -1,16 +1,19 @@
 #include "eflat.h"
 
+#include "../AppStates.h"
+
 eflat::eflat() {
 	windowWidth = 640;
 	windowHeight = 480;
-	Init();
+	running = true;
+	//Init();
 }
 
 eflat::eflat(int width, int height) {
-  windowWidth = width;
-  windowHeight = height;
-  running = true;
-  Init();
+	windowWidth = width;
+	windowHeight = height;
+	running = true;
+	//Init();
 }
 
 void eflat::Init() {
@@ -19,19 +22,23 @@ void eflat::Init() {
 	gameSurface = NULL;
 
 	// Initialize SDL
-	if ( SDL_Init( SDL_INIT_VIDEO ) < 0) {
+	if ( SDL_Init( SDL_INIT_EVERYTHING ) < 0) {
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
 	}
 	else {
 		gameWindow = SDL_CreateWindow( "Platform Test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, windowWidth, windowHeight, SDL_WINDOW_SHOWN );
 		if ( gameWindow == NULL ) {
-			printf( "window could not be created! SDL_Error: %s\n", SDL_GetError() );
+			printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
 		}
 		else {
 			//Get window surface
 			gameSurface = SDL_GetWindowSurface( gameWindow );
-			AppStateManager::SetActiveAppState(1);
-			OnLoop();
+			
+			// set the active state to the main menu
+			AppStateManager::SetActiveAppState(APP_MAIN_MENU);
+			
+			// calling this from outside of here, as init should only initialize itself and then be done
+			//OnLoop();
 			//	SDL_Delay(2000);
 		}
 	}
@@ -41,7 +48,8 @@ void eflat::OnLoop() {
 	SDL_Event Event;
 	while (running) {
 		while(SDL_PollEvent(&Event)) {
-		  AppStateManager::OnLoop();
+			// NOTE: I think this is too much? Or should be handled in a different way
+		  	AppStateManager::OnLoop();
 		  
 			OnEvent(&Event);
 			OnRender();
@@ -50,14 +58,15 @@ void eflat::OnLoop() {
 }
 
 void eflat::OnRender() {
-  AppStateManager::OnRender(gameSurface);
-  //SDL_FillRect( gameSurface, NULL, SDL_MapRGB( gameSurface->format, 0xFF, 0xFF, 0xFF) );
-  SDL_UpdateWindowSurface(gameWindow);
+	// render with current state screen
+	AppStateManager::OnRender(gameSurface);
+	// update the screen
+	SDL_UpdateWindowSurface(gameWindow);
 }
 
 void eflat::OnEvent(SDL_Event* Event) {
-  efEvent::OnEvent(Event);
-  AppStateManager::OnEvent(Event);
+	efEvent::OnEvent(Event);
+	AppStateManager::OnEvent(Event);
 }
 
 void eflat::OnExit() {

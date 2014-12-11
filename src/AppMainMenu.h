@@ -3,6 +3,7 @@
 
 #include "eflat/appState.h"
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 
 class AppMainMenu : public AppState {
 private:
@@ -10,6 +11,7 @@ private:
 //	SDL_Surface* Box;
 
 	int StartTime;
+	TTF_Font* font = NULL;
 	AppMainMenu();
 public:
 	//void OnEvent(SDL_Event* Event);
