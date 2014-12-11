@@ -5,7 +5,7 @@
 AppMainMenu AppMainMenu::Instance;
 
 AppMainMenu::AppMainMenu() {
-	Box = NULL;
+//	Box = NULL;
 }
 
 void AppMainMenu::OnActivate() {
@@ -16,9 +16,9 @@ void AppMainMenu::OnDeactivate() {
 
 }
 
-void AppMainMenu::OnEvent(SDL_Event* Event) {
+/*void AppMainMenu::OnEvent(SDL_Event* Event) {
 
-}
+}*/
 
 void AppMainMenu::OnLoop() {
 	

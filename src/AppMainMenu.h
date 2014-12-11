@@ -7,12 +7,12 @@
 class AppMainMenu : public AppState {
 private:
 	static AppMainMenu Instance;
-	SDL_Surface* Box;
+//	SDL_Surface* Box;
 
 	int StartTime;
 	AppMainMenu();
 public:
-	void OnEvent(SDL_Event* Event);
+	//void OnEvent(SDL_Event* Event);
 	void OnActivate();
 	void OnDeactivate();
 	void OnLoop();

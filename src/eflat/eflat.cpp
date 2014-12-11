@@ -56,12 +56,14 @@ void eflat::OnRender() {
 }
 
 void eflat::OnEvent(SDL_Event* Event) {
-  AppStateManager::OnEvent(Event);
   efEvent::OnEvent(Event);
+  AppStateManager::OnEvent(Event);
 }
 
 void eflat::OnExit() {
-
+	AppStateManager::SetActiveAppState(0);
+	
+	SDL_FreeSurface(gameSurface);	
 	//Destroy window
 	SDL_DestroyWindow( gameWindow );
 
