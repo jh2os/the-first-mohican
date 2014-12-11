@@ -3,17 +3,17 @@
 eflat::eflat() {
 	windowWidth = 640;
 	windowHeight = 480;
-	init();
+	Init();
 }
 
 eflat::eflat(int width, int height) {
-	windowWidth = width;
-	windowHeight = height;
-	running = true;
-	init();
+  windowWidth = width;
+  windowHeight = height;
+  running = true;
+  Init();
 }
 
-void eflat::init() {
+void eflat::Init() {
 
 	gameWindow = NULL;
 	gameSurface = NULL;
@@ -30,27 +30,32 @@ void eflat::init() {
 		else {
 			//Get window surface
 			gameSurface = SDL_GetWindowSurface( gameWindow );
-			
-			SDL_FillRect( gameSurface, NULL, SDL_MapRGB( gameSurface->format, 0xFF, 0xFF, 0xFF) );
-	
-			SDL_UpdateWindowSurface(gameWindow);
-
-			onLoop();
+			AppStateManager::SetActiveAppState(1);
+			OnLoop();
 			//	SDL_Delay(2000);
 		}
 	}
 }
 
-void eflat::onLoop() {
+void eflat::OnLoop() {
 	SDL_Event Event;
 	while (running) {
 		while(SDL_PollEvent(&Event)) {
-			onEvent(&Event);
+		  AppStateManager::OnLoop();
+		  OnEvent(&Event);
 		}
 	}
 }
-void eflat::onEvent(SDL_Event* Event) {
-	efEvent::OnEvent(Event);
+
+void eflat::OnRender(SDL_Surface* gameSurface) {
+  AppStateManager::OnRender(gameSurface);
+  //SDL_FillRect( gameSurface, NULL, SDL_MapRGB( gameSurface->format, 0xFF, 0xFF, 0xFF) );
+  SDL_UpdateWindowSurface(gameWindow);
+}
+
+void eflat::OnEvent(SDL_Event* Event) {
+  AppStateManager::OnEvent(Event);
+  efEvent::OnEvent(Event);
 }
 
 void eflat::OnExit() {
