@@ -24,7 +24,7 @@ void AppMainGame::OnLoop() {
 }
 
 void AppMainGame::OnRender(SDL_Surface* Display) {
-     SDL_FillRect( Display, NULL, SDL_MapRGB( Display->format, 0xFF, 0xFF, 0xFF) );
+     SDL_FillRect( Display, NULL, SDL_MapRGB( Display->format, 0x00, 0x00, 0x00) );
 }
 
 AppMainGame* AppMainGame::GetInstance() {

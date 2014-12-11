@@ -20,6 +20,6 @@ class eflat : efEvent {
 	void Init();
 	void OnLoop();
 	void OnEvent(SDL_Event* Event);
-	void OnRender(SDL_Surface* gameSurface);
+	void OnRender();
 	void OnExit();
 };

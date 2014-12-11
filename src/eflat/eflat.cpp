@@ -42,12 +42,14 @@ void eflat::OnLoop() {
 	while (running) {
 		while(SDL_PollEvent(&Event)) {
 		  AppStateManager::OnLoop();
-		  OnEvent(&Event);
+		  
+			OnEvent(&Event);
+			OnRender();
 		}
 	}
 }
 
-void eflat::OnRender(SDL_Surface* gameSurface) {
+void eflat::OnRender() {
   AppStateManager::OnRender(gameSurface);
   //SDL_FillRect( gameSurface, NULL, SDL_MapRGB( gameSurface->format, 0xFF, 0xFF, 0xFF) );
   SDL_UpdateWindowSurface(gameWindow);

@@ -18,6 +18,10 @@ public:
 	void OnLoop();
 	void OnRender(SDL_Surface* Display);
 	static AppMainMenu* GetInstance();
+	
+	//When Things happen
+	void OnKeyDown(SDL_Keycode key);
+
 };
 
 #endif
