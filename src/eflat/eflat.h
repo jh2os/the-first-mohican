@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include "efEvent.h"
+#include "appStateManager.h"
 
 class eflat : efEvent {
 
@@ -16,8 +17,9 @@ class eflat : efEvent {
 	eflat();
 	eflat(int width, int height);
 	
-	void init();
-	void onLoop();
-	void onEvent(SDL_Event* Event);	
+	void Init();
+	void OnLoop();
+	void OnEvent(SDL_Event* Event);
+	void OnRender();
 	void OnExit();
 };
