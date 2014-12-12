@@ -1,7 +1,5 @@
 #include "AppStateManager.h"
 
-#include "../AppStates.h"
-
 AppState* AppStateManager::ActiveAppState = 0;
 
 void AppStateManager::OnEvent(SDL_Event* Event) {
@@ -28,9 +26,9 @@ void AppStateManager::OnRender(SDL_Surface* Display) {
 void AppStateManager::SetActiveAppState(int AppStateId) {
 	if (ActiveAppState) ActiveAppState->OnDeactivate();
 
-	if (AppStateId == APP_NONE) ActiveAppState = 0;
-	if (AppStateId == APP_MAIN_MENU) ActiveAppState = AppMainMenu::GetInstance();
-	if (AppStateId == APP_MAIN_GAME) ActiveAppState = AppMainGame::GetInstance();
+	if (AppStateId == EngineEvent::APP_NONE) ActiveAppState = 0;
+	if (AppStateId == EngineEvent::APP_MAIN_MENU) ActiveAppState = AppMainMenu::GetInstance();
+	if (AppStateId == EngineEvent::APP_MAIN_GAME) ActiveAppState = AppMainGame::GetInstance();
 
 	if (ActiveAppState) ActiveAppState->OnActivate();
 		

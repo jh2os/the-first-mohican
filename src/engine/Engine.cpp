@@ -1,7 +1,5 @@
 #include "Engine.h"
 
-#include "../AppStates.h"
-
 Engine::Engine() {
 	windowWidth = 640;
 	windowHeight = 480;
@@ -35,7 +33,7 @@ void Engine::Init() {
 			gameSurface = SDL_GetWindowSurface( gameWindow );
 			
 			// set the active state to the main menu
-			AppStateManager::SetActiveAppState(APP_MAIN_MENU);
+			AppStateManager::SetActiveAppState(EngineEvent::APP_MAIN_MENU);
 			
 			// calling this from outside of here, as init should only initialize itself and then be done
 			//OnLoop();
@@ -74,7 +72,7 @@ void Engine::OnExit() {
 	// I don't know why we are doing this
 	// === This function automatically deactivates the appstate
 	// === and clears the pointer to avoid segfaults
-	AppStateManager::SetActiveAppState(APP_NONE);
+	AppStateManager::SetActiveAppState(EngineEvent::APP_NONE);
 	// deactivate the state
 	//AppStateManager::OnDeactivate();
 	

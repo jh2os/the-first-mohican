@@ -1,5 +1,4 @@
-#include "AppMainMenu.h"
-#include "AppMainGame.h"
+
 
 enum {
 	APP_NONE,

@@ -1,7 +1,9 @@
 #ifndef APPSTATEMANAGER_H_
 	#define APPSTATEMANAGER_H_
 
-#include "AppState.h"
+// set an include here for each new state
+#include "../AppMainMenu.h"
+#include "../AppMainGame.h"
 
 class AppStateManager {
 private:

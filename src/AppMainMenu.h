@@ -2,8 +2,9 @@
 	#define APPMAINMENU_H
 
 #include "engine/AppState.h"
-#include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <iostream>
+#include "engine/AppStateManager.h"
 
 class AppMainMenu : public AppState {
 private:

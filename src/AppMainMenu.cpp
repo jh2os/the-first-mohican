@@ -1,7 +1,4 @@
 #include "AppMainMenu.h"
-#include "engine/AppStateManager.h"
-#include <iostream>
-#include "AppStates.h"
 
 AppMainMenu AppMainMenu::Instance;
 
@@ -52,7 +49,7 @@ void AppMainMenu::OnKeyDown(SDL_Keycode key) {
 	switch(key) {
 		case SDLK_RIGHT: {
 			// go to the main game
-			AppStateManager::SetActiveAppState(APP_MAIN_GAME);
+			AppStateManager::SetActiveAppState(EngineEvent::APP_MAIN_GAME);
 			break;		
 		}
 	}

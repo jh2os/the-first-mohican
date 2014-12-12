@@ -2,7 +2,8 @@
 	#define APPMAINGAME_H
 
 #include "engine/AppState.h"
-#include <SDL2/SDL.h>
+// uncomment if needed
+//#include "engine/AppStateManager.h"
 
 class AppMainGame : public AppState {
 private:
