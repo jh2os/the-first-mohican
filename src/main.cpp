@@ -1,7 +1,7 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <iostream>
-#include "eflat/eflat.h"
+#include "engine/Engine.h"
 
 int main( int argc, char* args[] )
 {
@@ -10,7 +10,7 @@ int main( int argc, char* args[] )
 	
 	// setup the engine
 	// REMINDER: rename eflat to eleventhFretEngine or something with engine in the name
-	eflat engine(screen_width, screen_height);
+	Engine engine(screen_width, screen_height);
 	
 	// initialize the engine
 	engine.Init();

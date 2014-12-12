@@ -1,7 +1,7 @@
 #ifndef APPMAINGAME_H
 	#define APPMAINGAME_H
 
-#include "eflat/appState.h"
+#include "engine/AppState.h"
 #include <SDL2/SDL.h>
 
 class AppMainGame : public AppState {

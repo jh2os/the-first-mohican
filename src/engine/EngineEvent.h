@@ -3,11 +3,11 @@
  
 #include <SDL2/SDL.h>
  
-class efEvent {
+class EngineEvent {
     public:
-        efEvent();
+        EngineEvent();
  
-        virtual ~efEvent();
+        virtual ~EngineEvent();
  
         virtual void OnEvent(SDL_Event* Event);
  

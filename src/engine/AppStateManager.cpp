@@ -1,4 +1,4 @@
-#include "appStateManager.h"
+#include "AppStateManager.h"
 
 #include "../AppStates.h"
 

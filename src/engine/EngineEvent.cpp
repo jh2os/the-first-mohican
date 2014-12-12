@@ -1,13 +1,13 @@
-#include "efEvent.h"
+#include "EngineEvent.h"
  
-efEvent::efEvent() {
+EngineEvent::EngineEvent() {
 }
  
-efEvent::~efEvent() {
+EngineEvent::~EngineEvent() {
     //Do nothing
 }
  
-void efEvent::OnEvent(SDL_Event* Event) {
+void EngineEvent::OnEvent(SDL_Event* Event) {
     switch(Event->type) {
         /*case SDL_WINDOWEVENT: {
             switch(Event->window.event) {
@@ -136,102 +136,102 @@ void efEvent::OnEvent(SDL_Event* Event) {
     }
 }
  
-void efEvent::OnInputFocus() {
+void EngineEvent::OnInputFocus() {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnInputBlur() {
+void EngineEvent::OnInputBlur() {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnKeyDown(SDL_Keycode) {
+void EngineEvent::OnKeyDown(SDL_Keycode) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnKeyUp(SDL_Keycode) {
+void EngineEvent::OnKeyUp(SDL_Keycode) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnMouseFocus() {
+void EngineEvent::OnMouseFocus() {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnMouseBlur() {
+void EngineEvent::OnMouseBlur() {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle) {
+void EngineEvent::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,bool Right,bool Middle) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnMouseWheel(bool Up, bool Down) {
+void EngineEvent::OnMouseWheel(bool Up, bool Down) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnLButtonDown(int mX, int mY) {
+void EngineEvent::OnLButtonDown(int mX, int mY) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnLButtonUp(int mX, int mY) {
+void EngineEvent::OnLButtonUp(int mX, int mY) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnRButtonDown(int mX, int mY) {
+void EngineEvent::OnRButtonDown(int mX, int mY) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnRButtonUp(int mX, int mY) {
+void EngineEvent::OnRButtonUp(int mX, int mY) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnMButtonDown(int mX, int mY) {
+void EngineEvent::OnMButtonDown(int mX, int mY) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnMButtonUp(int mX, int mY) {
+void EngineEvent::OnMButtonUp(int mX, int mY) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnJoyAxis(Uint8 which,Uint8 axis,Sint16 value) {
+void EngineEvent::OnJoyAxis(Uint8 which,Uint8 axis,Sint16 value) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnJoyButtonDown(Uint8 which,Uint8 button) {
+void EngineEvent::OnJoyButtonDown(Uint8 which,Uint8 button) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnJoyButtonUp(Uint8 which,Uint8 button) {
+void EngineEvent::OnJoyButtonUp(Uint8 which,Uint8 button) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnJoyHat(Uint8 which,Uint8 hat,Uint8 value) {
+void EngineEvent::OnJoyHat(Uint8 which,Uint8 hat,Uint8 value) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnJoyBall(Uint8 which,Uint8 ball,Sint16 xrel,Sint16 yrel) {
+void EngineEvent::OnJoyBall(Uint8 which,Uint8 ball,Sint16 xrel,Sint16 yrel) {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnMinimize() {
+void EngineEvent::OnMinimize() {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnRestore() {
+void EngineEvent::OnRestore() {
     //Pure virtual, do nothing
 }
 /* 
-void efEvent::OnResize(int w,int h) {
+void EngineEvent::OnResize(int w,int h) {
     //Pure virtual, do nothing
 }*/
  
-void efEvent::OnExpose() {
+void EngineEvent::OnExpose() {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnExit() {
+void EngineEvent::OnExit() {
     //Pure virtual, do nothing
 }
  
-void efEvent::OnUser(Uint8 type, int code, void* data1, void* data2) {
+void EngineEvent::OnUser(Uint8 type, int code, void* data1, void* data2) {
     //Pure virtual, do nothing
 }

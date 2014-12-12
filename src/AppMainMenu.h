@@ -1,7 +1,7 @@
 #ifndef APPMAINMENU_H
 	#define APPMAINMENU_H
 
-#include "eflat/appState.h"
+#include "engine/AppState.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 

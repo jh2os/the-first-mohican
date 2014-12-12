@@ -1,8 +1,8 @@
 #include <SDL2/SDL.h>
-#include "efEvent.h"
-#include "appStateManager.h"
+#include "EngineEvent.h"
+#include "AppStateManager.h"
 
-class eflat : efEvent {
+class Engine : EngineEvent {
 
 	public:
 
@@ -14,8 +14,8 @@ class eflat : efEvent {
 	SDL_Surface* gameSurface;
 
 	
-	eflat();
-	eflat(int width, int height);
+	Engine();
+	Engine(int width, int height);
 	
 	void Init();
 	void OnLoop();

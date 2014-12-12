@@ -1,22 +1,22 @@
-#include "eflat.h"
+#include "Engine.h"
 
 #include "../AppStates.h"
 
-eflat::eflat() {
+Engine::Engine() {
 	windowWidth = 640;
 	windowHeight = 480;
 	running = true;
 	//Init();
 }
 
-eflat::eflat(int width, int height) {
+Engine::Engine(int width, int height) {
 	windowWidth = width;
 	windowHeight = height;
 	running = true;
 	//Init();
 }
 
-void eflat::Init() {
+void Engine::Init() {
 
 	gameWindow = NULL;
 	gameSurface = NULL;
@@ -44,7 +44,7 @@ void eflat::Init() {
 	}
 }
 
-void eflat::OnLoop() {
+void Engine::OnLoop() {
 	SDL_Event Event;
 	while (running) {
 		while(SDL_PollEvent(&Event)) {
@@ -57,19 +57,19 @@ void eflat::OnLoop() {
 	}
 }
 
-void eflat::OnRender() {
+void Engine::OnRender() {
 	// render with current state screen
 	AppStateManager::OnRender(gameSurface);
 	// update the screen
 	SDL_UpdateWindowSurface(gameWindow);
 }
 
-void eflat::OnEvent(SDL_Event* Event) {
-	efEvent::OnEvent(Event);
+void Engine::OnEvent(SDL_Event* Event) {
+	EngineEvent::OnEvent(Event);
 	AppStateManager::OnEvent(Event);
 }
 
-void eflat::OnExit() {
+void Engine::OnExit() {
 
 	// I don't know why we are doing this
 	// === This function automatically deactivates the appstate

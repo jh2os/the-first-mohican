@@ -1,7 +1,7 @@
 #ifndef APPSTATEMANAGER_H_
 	#define APPSTATEMANAGER_H_
 
-#include "appState.h"
+#include "AppState.h"
 
 class AppStateManager {
 private:

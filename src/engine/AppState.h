@@ -1,9 +1,9 @@
 #ifndef APPSTATE_H
 	#define APPSTATE_H
 
-#include "efEvent.h"
+#include "EngineEvent.h"
 
-class AppState : public efEvent {
+class AppState : public EngineEvent {
 public:
 	AppState();
 	virtual void OnActivate() = 0;
