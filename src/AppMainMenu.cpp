@@ -49,7 +49,7 @@ void AppMainMenu::OnKeyDown(SDL_Keycode key) {
 	switch(key) {
 		case SDLK_RIGHT: {
 			// go to the main game
-			AppStateManager::SetActiveAppState(EngineEvent::APP_MAIN_GAME);
+			AppStateManager::SetActiveAppState(AppStates::APP_MAIN_GAME);
 			break;		
 		}
 	}

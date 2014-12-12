@@ -2,18 +2,13 @@
     #define _CEVENT_H_
  
 #include <SDL2/SDL.h>
+#include "AppStates.h"
 //#include "AppStateManager.h"
 //#include "AppStateManager.h"
 
 class EngineEvent {
 	
 	public:
-		enum AppState{
-			APP_NONE,
-			APP_MAIN_MENU,
-			APP_MAIN_GAME
-		};
-	
 		EngineEvent();
 
 		virtual ~EngineEvent();

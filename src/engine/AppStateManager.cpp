@@ -26,9 +26,9 @@ void AppStateManager::OnRender(SDL_Surface* Display) {
 void AppStateManager::SetActiveAppState(int AppStateId) {
 	if (ActiveAppState) ActiveAppState->OnDeactivate();
 
-	if (AppStateId == EngineEvent::APP_NONE) ActiveAppState = 0;
-	if (AppStateId == EngineEvent::APP_MAIN_MENU) ActiveAppState = AppMainMenu::GetInstance();
-	if (AppStateId == EngineEvent::APP_MAIN_GAME) ActiveAppState = AppMainGame::GetInstance();
+	if (AppStateId == AppStates::APP_NONE) ActiveAppState = 0;
+	if (AppStateId == AppStates::APP_MAIN_MENU) ActiveAppState = AppMainMenu::GetInstance();
+	if (AppStateId == AppStates::APP_MAIN_GAME) ActiveAppState = AppMainGame::GetInstance();
 
 	if (ActiveAppState) ActiveAppState->OnActivate();
 		
