@@ -14,7 +14,7 @@ public:
 	static void OnActivate();
 	static void OnDeactivate();
 	static void OnLoop();
-	static void OnRender(SDL_Surface* Display);
+	static void OnRender();
 
 	// These functions are not passthrough
 	static void SetActiveAppState(int AppStateID);

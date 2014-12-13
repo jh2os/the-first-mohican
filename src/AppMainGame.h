@@ -17,7 +17,7 @@ public:
 	void OnActivate();
 	void OnDeactivate();
 	void OnLoop();
-	void OnRender(SDL_Surface* Display);
+	void OnRender();
 	static AppMainGame* GetInstance();
 };
 

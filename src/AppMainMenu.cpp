@@ -37,9 +37,9 @@ void AppMainMenu::OnLoop() {
 	std::cout << "test" << std::endl;
 }
 
-void AppMainMenu::OnRender(SDL_Surface* Display) {
+void AppMainMenu::OnRender() {
 	// clear screen
-	SDL_FillRect( Display, NULL, SDL_MapRGB( Display->format, 0xCC, 0xCC, 0xCC) );
+	SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0xCC, 0xCC, 0xCC) );
 	// display what we want
 	
 }

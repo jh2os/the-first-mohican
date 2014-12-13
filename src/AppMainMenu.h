@@ -19,7 +19,7 @@ public:
 	void OnActivate();
 	void OnDeactivate();
 	void OnLoop();
-	void OnRender(SDL_Surface* Display);
+	void OnRender();
 	static AppMainMenu* GetInstance();
 	
 	//When Things happen

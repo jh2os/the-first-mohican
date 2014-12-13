@@ -18,8 +18,8 @@ void AppStateManager::OnLoop() {
 	if (ActiveAppState) ActiveAppState->OnLoop();
 }
 
-void AppStateManager::OnRender(SDL_Surface* Display) {
-	if (ActiveAppState) ActiveAppState->OnRender(Display);
+void AppStateManager::OnRender() {
+	if (ActiveAppState) ActiveAppState->OnRender();
 
 }
 
