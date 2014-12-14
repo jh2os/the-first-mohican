@@ -18,9 +18,9 @@ void Engine::OnLoop() {
 	while (E.running) {
 		while(SDL_PollEvent(&Event)) {
 			// NOTE: I think this is too much? Or should be handled in a different way
-		  	OnEvent(&Event);
 		  	E.appState->OnLoop();
 			OnRender();
+			OnEvent(&Event);
 		}
 	}
 }
