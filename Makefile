@@ -1,5 +1,5 @@
 #OBJS specifies which files to compile as part of the project
-OBJS = main.cpp App* engine/*
+OBJS = src/main.cpp src/App* src/engine/*
 
 #CC specifies which compiler we're using
 CC = g++
@@ -12,7 +12,7 @@ COMILER_FLAGS = -w
 LINKER_FLAGS = -lSDL2 -lSDL2_ttf
 
 #OBJ_NAME specifies the name of our executable
-OBJ_NAME = ../platformtest
+OBJ_NAME = platformtest
 
 #This is the target that compiles our executable
 all : $(OBJS)

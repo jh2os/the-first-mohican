@@ -4,7 +4,7 @@
 
 AppMainGame::AppMainGame() {
 
-	Box = SDL_LoadBMP("../assets/x.bmp");
+	Box = SDL_LoadBMP("assets/x.bmp");
 	if (Box == NULL) printf("unable to load image: \n");
 
 	SDL_SetColorKey( Box, SDL_FALSE, SDL_MapRGB( Box->format, 0, 0xFF, 0xFF ) );
