@@ -33,8 +33,8 @@ void Engine::OnRender() {
 }
 
 void Engine::OnEvent(SDL_Event* event) {
+	E.appState->AppState::OnEvent(event);
 	EngineEvent::OnEvent(event);
-	E.appState->OnEvent(event);
 }
 
 void Engine::OnExit() {
