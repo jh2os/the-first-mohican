@@ -5,7 +5,6 @@
 #include <SDL2/SDL_ttf.h>
 #include "AppState.h"
 #include <string>
-#include <iostream>
 
 class EngineResources {
 	public:

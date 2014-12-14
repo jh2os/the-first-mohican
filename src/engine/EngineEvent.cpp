@@ -9,9 +9,9 @@ EngineEvent::~EngineEvent() {
  
 void EngineEvent::OnEvent(SDL_Event* Event) {
     switch(Event->type) {
-        /*case SDL_WINDOWEVENT: {
+        case SDL_WINDOWEVENT: {
             switch(Event->window.event) {
-                case SDL_APPMOUSEFOCUS: {
+                /*case SDL_APPMOUSEFOCUS: {
                     if ( Event->active.gain )    OnMouseFocus();
                     else                OnMouseBlur();
  
@@ -28,10 +28,10 @@ void EngineEvent::OnEvent(SDL_Event* Event) {
                     else                OnMinimize();
  
                     break;
-                }
+                }*/
             }
             break;
-        }*/
+        }
  
         case SDL_KEYDOWN: {
             OnKeyDown(Event->key.keysym.sym);

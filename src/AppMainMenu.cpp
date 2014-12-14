@@ -1,9 +1,7 @@
 #include "AppMainMenu.h"
 
+AppMainMenu::AppMainMenu() {
 
-// I am assuming this is the init method
-void AppMainMenu::OnActivate() {
-	
 }
 
 void AppMainMenu::OnDeactivate() {
@@ -29,6 +27,10 @@ void AppMainMenu::OnRender() {
 
 void AppMainMenu::OnKeyDown(SDL_Keycode key) {
 	switch(key) {
+		case SDLK_ESCAPE: {
+			E.Quit();
+			break;
+		}
 		case SDLK_RIGHT: {
 			// go to the main game
 			E.SetActiveAppState(2);

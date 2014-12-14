@@ -6,17 +6,33 @@
 
 class AppMainGame : public AppState {
 private:
-	//static AppMainGame Instance;
-	SDL_Surface* Box;
-
+	//static AppMainGame Instance
 	int StartTime;
+
 public:
+	AppMainGame();
+
+	SDL_Texture* tex;	
+	SDL_Surface* Box;
+	SDL_Point center;
+
+	int texW;
+	int texH;
+	int texX;
+	int texY;
+
+	int dir;
+	int count;
+
+	double angle;
 	//void OnEvent(SDL_Event* Event);
-	void OnActivate();
 	void OnDeactivate();
 	void OnLoop();
 	void OnRender();
 	void SetActiveAppState(int AppStateID);
+
+	//When Things happen
+	void OnKeyDown(SDL_Keycode key);
 };
 
 #endif

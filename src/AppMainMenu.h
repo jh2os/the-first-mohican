@@ -14,8 +14,8 @@ private:
 	int StartTime;
 	TTF_Font* font = NULL;
 public:
+	AppMainMenu();
 	void OnEvent(SDL_Event* Event);
-	void OnActivate();
 	void OnDeactivate();
 	void OnLoop();
 	void OnRender();

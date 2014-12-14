@@ -29,14 +29,14 @@ bool EngineResources::Start() {
 	font = TTF_OpenFont("ttf/Transformers-Movie.ttf", 32);
 
 	// Declare our window
-	gameWindow = SDL_CreateWindow("11th-fret Game Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, windowWidth, windowHeight, SDL_WINDOW_SHOWN);
+	gameWindow = SDL_CreateWindow("11th-fret Game Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, windowWidth,windowHeight, 0);
 	if(gameWindow == NULL) {
 		printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 		return false;
 	}
 
 	// Declare our Renderer
-	gameRenderer = SDL_CreateRenderer(gameWindow, -1, SDL_RENDERER_SOFTWARE);
+	gameRenderer = SDL_CreateRenderer( &*gameWindow, -1, SDL_RENDERER_SOFTWARE);
 	if (gameRenderer == NULL) {
 		printf("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		return false;
@@ -44,7 +44,6 @@ bool EngineResources::Start() {
 
 	gameSurface = SDL_GetWindowSurface(gameWindow);
 	// Welp, looks like everything is good
-	std::cout << "hey everything initialized" << std::endl;
 	return true;
 }
 

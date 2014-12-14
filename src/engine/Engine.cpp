@@ -16,20 +16,24 @@ void Engine::Init() {
 void Engine::OnLoop() {
 	SDL_Event Event;
 	while (E.running) {
+		
+		E.appState->OnLoop();
+		OnRender();
+
 		while(SDL_PollEvent(&Event)) {
 			// NOTE: I think this is too much? Or should be handled in a different way
-		  	E.appState->OnLoop();
-			OnRender();
-			OnEvent(&Event);
+		  OnEvent(&Event);
 		}
 	}
 }
 
 void Engine::OnRender() {
+	SDL_RenderClear(E.gameRenderer);
 	// render with current state screen
 	E.appState->OnRender();
 	// update the screen
-	SDL_UpdateWindowSurface(E.gameWindow);
+	SDL_RenderPresent(E.gameRenderer);	
+	//SDL_UpdateWindowSurface(E.gameWindow);
 }
 
 void Engine::OnEvent(SDL_Event* event) {
