@@ -2,9 +2,6 @@
     #define _CEVENT_H_
  
 #include <SDL2/SDL.h>
-#include "AppStates.h"
-//#include "AppStateManager.h"
-//#include "AppStateManager.h"
 
 class EngineEvent {
 	

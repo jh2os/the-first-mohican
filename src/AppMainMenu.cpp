@@ -1,61 +1,38 @@
 #include "AppMainMenu.h"
 
-AppMainMenu AppMainMenu::Instance;
-
-AppMainMenu::AppMainMenu() {
-	// Box = NULL;
-	std::cout << "constructor" << std::endl;
-	// nothing to set up
-}
 
 // I am assuming this is the init method
 void AppMainMenu::OnActivate() {
-	// set up ttf
-	if(TTF_Init() == -1){
-		printf("SDL_ttf could not initialize! SDL_Error: %s\n", SDL_GetError() );
-	}
-	else{
-		font = TTF_OpenFont("ttf/Transformers-Movie.ttf", 32);
-	}
+	
 }
 
 void AppMainMenu::OnDeactivate() {
-	std::cout << "deactivating main menu state" << std::endl;
-	// Free font
-        TTF_CloseFont(font);
-
-        // Quit TTF
-        TTF_Quit();
+	
 }
 
-/*void AppMainMenu::OnEvent(SDL_Event* Event) {
-
-}*/
+void AppMainMenu::OnEvent(SDL_Event* event) {
+	// not being called
+}
 
 void AppMainMenu::OnLoop() {
-	// NOTE: I don't think we need this, at least in this class
-	std::cout << "test" << std::endl;
+	// magic...
+	// code goes here
+	// game stuff happens
 }
 
 void AppMainMenu::OnRender() {
 	// clear screen
-	SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0xCC, 0xCC, 0xCC) );
-	// display what we want
+	SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0xFF, 0xFF, 0xFF) );
+	// list menu options now
 	
 }
 
 void AppMainMenu::OnKeyDown(SDL_Keycode key) {
-	std::cout << key << std::endl;
 	switch(key) {
 		case SDLK_RIGHT: {
 			// go to the main game
-			AppStateManager::SetActiveAppState(AppStates::APP_MAIN_GAME);
+			E.SetActiveAppState(2);
 			break;		
 		}
 	}
 }
-
-AppMainMenu* AppMainMenu::GetInstance() {
-	return &Instance;
-}
-

@@ -2,23 +2,21 @@
 	#define APPMAINGAME_H
 
 #include "engine/AppState.h"
-// uncomment if needed
-//#include "engine/AppStateManager.h"
+#include "engine/E.h"
 
 class AppMainGame : public AppState {
 private:
-	static AppMainGame Instance;
+	//static AppMainGame Instance;
 	SDL_Surface* Box;
 
 	int StartTime;
-	AppMainGame();
 public:
-	void OnEvent(SDL_Event* Event);
+	//void OnEvent(SDL_Event* Event);
 	void OnActivate();
 	void OnDeactivate();
 	void OnLoop();
 	void OnRender();
-	static AppMainGame* GetInstance();
+	void SetActiveAppState(int AppStateID);
 };
 
 #endif

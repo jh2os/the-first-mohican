@@ -1,16 +1,16 @@
 #include "Engine.h"
 
 Engine::Engine() {
-  E.Start();
+	E.Start();
 }
 
 Engine::Engine(int width, int height) {
-  // We need to look at ways to set the res...
-  E.Start();
+	// We need to look at ways to set the res...
+	E.Start();
 }
 
 void Engine::Init() {
-  AppStateManager::SetActiveAppState(AppStates::APP_MAIN_MENU);
+ 	E.SetActiveAppState(1);
 }
 
 void Engine::OnLoop() {
@@ -18,9 +18,8 @@ void Engine::OnLoop() {
 	while (E.running) {
 		while(SDL_PollEvent(&Event)) {
 			// NOTE: I think this is too much? Or should be handled in a different way
-		  	AppStateManager::OnLoop();
-		  
-			OnEvent(&Event);
+		  	OnEvent(&Event);
+		  	E.appState->OnLoop();
 			OnRender();
 		}
 	}
@@ -28,20 +27,17 @@ void Engine::OnLoop() {
 
 void Engine::OnRender() {
 	// render with current state screen
-  std::cout << "Here" << std::endl;
-	AppStateManager::OnRender();
+	E.appState->OnRender();
 	// update the screen
-	std::cout << "There" << std::endl;
 	SDL_UpdateWindowSurface(E.gameWindow);
 }
 
-void Engine::OnEvent(SDL_Event* Event) {
-	EngineEvent::OnEvent(Event);
-	AppStateManager::OnEvent(Event);
+void Engine::OnEvent(SDL_Event* event) {
+	EngineEvent::OnEvent(event);
+	E.appState->OnEvent(event);
 }
 
 void Engine::OnExit() {
-
-  AppStateManager::SetActiveAppState(AppStates::APP_NONE);
-  E.Quit();
+	//E.SetActiveAppState(0);
+	E.Quit();
 }
