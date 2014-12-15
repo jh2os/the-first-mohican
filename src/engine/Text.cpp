@@ -2,18 +2,41 @@
 
 Text::Text() {
 	// set font to the default font
-	font = TTF_OpenFont("./src/ttf/Transformers-Movie.ttf", DEFAULT_SIZE);
+	std::string loc = std::string(FONTS_LOCATION) + DEFAULT_FONT;
+	font = TTF_OpenFont(loc.c_str(), DEFAULT_SIZE);
 	surface = NULL;
-	
-	currentFont = Text::DEFAULT;
-	currentSize = DEFAULT_SIZE;
+	std::cout << currentFont << std::endl;
 }
 
-void Text::write(char* text, int x, int y){
-	write(text, x, y, DEFAULT, DEFAULT_SIZE);
+Text::Text(std::string filename, int size, SDL_Color color) {
+	// NOTE: change the open font to reflect filename
+	std::string loc = std::string(FONTS_LOCATION) + DEFAULT_FONT;
+	font = TTF_OpenFont(loc.c_str(), DEFAULT_SIZE);
+	surface = NULL;
+	currentFont = filename;
+	currentSize = size;
+	currentColor = color;
 }
 
-void Text::write(char* text, int x, int y, int fontType, int size){
+/*
+void Text::setColor(SDL_Color color){
+	currentColor = color;
+}
+
+void Text::setFont(std::string filename){
+	currentFont = filename;
+	std::string loc = std::string(FONTS_LOCATION) + currentFont;
+	font = TTF_OpenFont(loc.c_str(), currentSize);
+}
+
+void Text::setTextSize(int size){
+	currentSize = size;
+	std::string loc = std::string(FONTS_LOCATION) + currentFont;
+	font = TTF_OpenFont(loc.c_str(), currentSize);
+}
+*/
+
+void Text::write(std::string text, int x, int y){
 	
 	// check that x,y is on the screen
 	if(x < 0 || y < 0){
@@ -23,18 +46,12 @@ void Text::write(char* text, int x, int y, int fontType, int size){
 	rect.x = x;
 	rect.y = y;
 	
-	// check to see if we need to change the font
-	if(fontType != currentFont || size != currentSize){
-		//const char* newFont = "Transformers-Movie.ttf";
-		//font = TTF_OpenFont(newFont, size);
-	}
 	if(font != NULL){
-		surface = TTF_RenderText_Solid(font, text, DEFAULT_COLOR);
+		surface = TTF_RenderText_Solid(font, text.c_str(), currentColor);
 	}
 	else{
 		std::cout << "font was null!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
 	}
 	SDL_BlitSurface(surface, NULL, E.gameSurface, &rect);
 	SDL_FreeSurface(surface);
-	surface = NULL;
 }
