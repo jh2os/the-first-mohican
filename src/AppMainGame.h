@@ -11,10 +11,10 @@ private:
 
 public:
 	AppMainGame();
-
-	SDL_Texture* tex;	
-	SDL_Surface* Box;
 	SDL_Point center;
+
+	Texture taggedImg;
+	Texture tMan;
 
 	int texW;
 	int texH;

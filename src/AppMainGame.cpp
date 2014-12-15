@@ -4,25 +4,17 @@
 
 AppMainGame::AppMainGame() {
 
-	Box = SDL_LoadBMP("assets/x.bmp");
-	if (Box == NULL) printf("unable to load image: \n");
+	taggedImg.LoadTexture("assets/x.bmp");
+	tMan.LoadTexture("assets/man.bmp");
 
-	SDL_SetColorKey( Box, SDL_FALSE, SDL_MapRGB( Box->format, 0, 0xFF, 0xFF ) );
+	texX = taggedImg.sourceRect.x;
+	texY = taggedImg.sourceRect.y;
+	texW = taggedImg.sourceRect.w;
+	texH = taggedImg.sourceRect.h;
 
-
-	tex = SDL_CreateTextureFromSurface(E.gameRenderer, Box);
-	if (tex == NULL) printf("unable to load texture: \n");
-	SDL_FreeSurface(Box);
-
-	SDL_QueryTexture( tex, NULL, NULL, &texW, &texH );
-	texX = 0;
-	texY = 0;
 	dir = 1;
 	count = 1;
 	angle = 0.0;
-
-	center.x = 200;
-  center.y = 240;
 }
 
 void AppMainGame::OnDeactivate() {
@@ -118,18 +110,14 @@ void AppMainGame::OnLoop() {
 
 void AppMainGame::OnRender() {
 	//SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0x00, 0x00, 0x00) );
-	SDL_SetRenderDrawColor( E.gameRenderer, 255,255,255,255);
+	SDL_SetRenderDrawColor( E.gameRenderer, 0,0,0,255);
 	//SDL_SetTextureBlendMode(tex, SDL_BLENDMODE_NONE);
 	//SDL_SetTextureAlphaMod( tex, 20);
-	SDL_Rect sourceRec;
 
+	taggedImg.SetDestRect( texX, texY, texH, texW );
+	taggedImg.DisplayTexture(angle);
+	tMan.DisplayTexture((double)0);	
 
-	sourceRec.x = texX;
-	sourceRec.y = texY;
-	sourceRec.w = texW;
-	sourceRec.h = texH;
-
-	SDL_RenderCopyEx( E.gameRenderer, tex, NULL, &sourceRec, angle, &center, SDL_FLIP_NONE);
 }
 
 void AppMainGame::OnKeyDown(SDL_Keycode key) {

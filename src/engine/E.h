@@ -3,8 +3,9 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
-#include "AppState.h"
 #include <string>
+#include "AppState.h"
+#include "Texture.h"
 
 class EngineResources {
 	public:
