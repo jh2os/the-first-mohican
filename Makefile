@@ -2,11 +2,11 @@
 OBJS = src/main.cpp src/App* src/engine/*
 
 #CC specifies which compiler we're using
-CC = g++
+CC = g++ -std=c++11 -Wall -Werror
 
 #COMPILER_FLAGS specifies the additional Comilation options we're using
 # -w suppressess all warnings
-COMILER_FLAGS = -w
+COMILER_FLAGS = 
 
 #LINKER_FLAGS specifies the libraries we're linking against
 LINKER_FLAGS = -lSDL2 -lSDL2_ttf

@@ -16,7 +16,6 @@ class EngineResources {
 		SDL_Window* gameWindow;
 		SDL_Renderer* gameRenderer;
 		SDL_Surface* gameSurface;
-		TTF_Font* font;
 		
 		AppState* appState;
 		

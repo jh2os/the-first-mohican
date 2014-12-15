@@ -5,6 +5,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <iostream>
 #include "engine/E.h"
+#include "engine/Text.h"
 
 class AppMainMenu : public AppState {
 private:
@@ -12,7 +13,7 @@ private:
 //	SDL_Surface* Box;
 
 	int StartTime;
-	TTF_Font* font = NULL;
+	Text* text = NULL;
 public:
 	AppMainMenu();
 	void OnEvent(SDL_Event* Event);

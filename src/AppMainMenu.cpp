@@ -1,7 +1,9 @@
 #include "AppMainMenu.h"
+#include <stdio.h>
+#include <string.h>
 
 AppMainMenu::AppMainMenu() {
-
+	text = new Text();
 }
 
 void AppMainMenu::OnDeactivate() {
@@ -22,7 +24,10 @@ void AppMainMenu::OnRender() {
 	// clear screen
 	SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0xFF, 0xFF, 0xFF) );
 	// list menu options now
-	
+	std::string str = "test";
+	char* chr = new char[str.length() + 1];
+	strcpy(chr, str.c_str());
+	text->write(chr, 0, 0);
 }
 
 void AppMainMenu::OnKeyDown(SDL_Keycode key) {

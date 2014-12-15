@@ -7,7 +7,6 @@ EngineResources::EngineResources() {
 	gameWindow = NULL;
 	gameRenderer = NULL;
 	gameSurface = NULL;
-	font = NULL;
 
 	windowWidth = 640;
 	windowHeight = 480;
@@ -26,7 +25,7 @@ bool EngineResources::Start() {
 		return false;
 	}
 	// set a font
-	font = TTF_OpenFont("ttf/Transformers-Movie.ttf", 32);
+	//font = TTF_OpenFont("ttf/Transformers-Movie.ttf", 32);
 
 	// Declare our window
 	gameWindow = SDL_CreateWindow("11th-fret Game Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, windowWidth,windowHeight, 0);
@@ -55,7 +54,7 @@ void EngineResources::Quit() {
 	SDL_FreeSurface(gameSurface);
 	SDL_DestroyRenderer(gameRenderer);
 	SDL_DestroyWindow(gameWindow);
-	TTF_CloseFont(font);
+	//TTF_CloseFont(font);
 	
 	appState = NULL;
 	
