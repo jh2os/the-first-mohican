@@ -37,7 +37,6 @@ void Text::setTextSize(int size){
 */
 
 void Text::write(std::string text, int x, int y){
-	
 	// check that x,y is on the screen
 	if(x < 0 || y < 0){
 		// raise an error

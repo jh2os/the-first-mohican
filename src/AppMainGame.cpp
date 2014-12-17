@@ -4,8 +4,8 @@
 
 AppMainGame::AppMainGame() {
 
-	taggedImg.LoadTexture("assets/x.bmp");
-	tMan.LoadTexture("assets/man.bmp");
+	taggedImg.LoadTexture("assets/bitmaps/x.bmp");
+	tMan.LoadTexture("assets/bitmaps/man.bmp");
 
 	texX = taggedImg.sourceRect.x;
 	texY = taggedImg.sourceRect.y;

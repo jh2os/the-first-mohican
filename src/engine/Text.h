@@ -52,6 +52,7 @@ class Text {
 		void setFont(std::string filename);
 		void setTextSize(int size);
 		*/
+		
 		void write(std::string text, int x, int y);
 };
 #endif
