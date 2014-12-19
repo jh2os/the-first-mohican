@@ -49,8 +49,10 @@ void Texture::SetDestRect(int cX, int cY, int cW, int cH ) {
 
 
 void Texture::DisplayTexture(double angle) {
-	//printf("%i %i %i %i\n", destRect.x, destRect.y, destRect.w, destRect.h);	
-	//printf("%i %i %i %i\n", sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h);
+	//fprintf("%i %i %i %i\n", destRect.x, destRect.y, destRect.w, destRect.h);	
+	//fprintf("%i %i %i %i\n", sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h);
+	//std::cout << sourceRect.x << sourceRect.y << sourceRect.w << sourceRect.h << std::endl;
+	//std::cout << destRect.x << destRect.y << destRect.w << destRect.h << std::endl;
 	SDL_RenderCopyEx( E.gameRenderer, eTexture, &sourceRect, &destRect, angle, &center, SDL_FLIP_NONE);
 }
 

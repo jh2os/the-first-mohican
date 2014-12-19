@@ -6,6 +6,8 @@ AppMainGame::AppMainGame() {
 
 	taggedImg.LoadTexture("assets/bitmaps/x.bmp");
 	tMan.LoadTexture("assets/bitmaps/man.bmp");
+	
+	text = new Text();
 
 	texX = taggedImg.sourceRect.x;
 	texY = taggedImg.sourceRect.y;
@@ -20,10 +22,11 @@ AppMainGame::AppMainGame() {
 void AppMainGame::OnDeactivate() {
 	taggedImg.DestroyTexture();
 	tMan.DestroyTexture();
+	text = NULL;
 }
 
 void AppMainGame::OnLoop() {
-	float distance = E.fps.GetSpeedFactor() * 10;
+	float distance = 1;//E.fps.GetSpeedFactor() * 10;
 	switch(dir) {
 		case 1:
 			if (count < 2) {	
@@ -116,10 +119,11 @@ void AppMainGame::OnRender() {
 	//SDL_SetTextureBlendMode(tex, SDL_BLENDMODE_NONE);
 	//SDL_SetTextureAlphaMod( tex, 20);
 
+	text->write("Fus Ro Dahh", 0,0);
+	tMan.DisplayTexture((double)0);
 	taggedImg.SetDestRect( (int)texX, (int)texY, (int)texH, (int)texW );
 	taggedImg.DisplayTexture(angle);
-	tMan.DisplayTexture((double)0);	
-
+	
 }
 
 void AppMainGame::OnKeyDown(SDL_Keycode key) {

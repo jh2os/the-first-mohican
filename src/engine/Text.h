@@ -20,7 +20,7 @@ class Text {
 		************************************/
 		TTF_Font* font;
 		SDL_Rect rect;
-		SDL_Surface* surface;
+		SDL_Texture* texture;
 		
 		const int DEFAULT_SIZE = 32;
 		char const* DEFAULT_FONT = "Transformers-Movie.ttf";
