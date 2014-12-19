@@ -52,6 +52,7 @@ void Text::write(std::string text, int x, int y){
 			SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 			SDL_RenderCopy(E.gameRenderer, texture, NULL, &rect);
 			SDL_FreeSurface(surface);
+			SDL_DestroyTexture(texture);
 		}
 	}
 	else{
