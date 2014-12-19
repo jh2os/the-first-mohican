@@ -3,6 +3,7 @@
 
 #include "engine/AppState.h"
 #include "engine/E.h"
+#include "engine/Text.h"
 
 class AppMainGame : public AppState {
 private:
@@ -15,6 +16,8 @@ public:
 
 	Texture taggedImg;
 	Texture tMan;
+
+	Text* text;
 
 	float texW;
 	float texH;

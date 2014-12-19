@@ -10,14 +10,15 @@ FPS::FPS() {
 }
 
 void FPS::OnLoop() {
-	if( oldTime + 1000 < SDL_GetTicks()) {
-		oldTime = SDL_GetTicks();
+	unsigned int currentTick = SDL_GetTicks();
+	if( oldTime + 1000 < currentTick) {
+		oldTime = currentTick;
 		numFrames = frames;
 		frames = 0;
 	}
 
-	speedFactor = ((SDL_GetTicks() - lastTime) / 1000.0f) * 32.0f;
-	lastTime = SDL_GetTicks();
+	speedFactor = ((currentTick - lastTime) / 1000.0f) * 64.0f;
+	lastTime = currentTick;
 	frames++;
 }
 
