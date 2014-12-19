@@ -20,4 +20,15 @@ int main( int argc, char* args[] )
 
 	// done
 	return 0;
+	
+	switch(1){
+	case 1:
+		std::cout << "hello" << std::endl;
+	case 2:
+		std::cout << "hello" << std::endl;
+		break;
+	case 3:
+		std::cout << "this was a triumph" << std::endl;
+		break;
+	}
 }

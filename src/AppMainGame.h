@@ -16,10 +16,10 @@ public:
 	Texture taggedImg;
 	Texture tMan;
 
-	int texW;
-	int texH;
-	int texX;
-	int texY;
+	float texW;
+	float texH;
+	float texX;
+	float texY;
 
 	int dir;
 	int count;
