@@ -28,7 +28,6 @@ void Engine::OnLoop() {
 }
 
 void Engine::OnRender() {
-	SDL_SetRenderDrawColor( E.gameRenderer, 0,0,0,255);
 	SDL_RenderClear(E.gameRenderer);
 	// render with current state screen
 	E.appState->OnRender();

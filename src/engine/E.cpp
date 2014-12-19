@@ -41,6 +41,8 @@ bool EngineResources::Start() {
 		return false;
 	}
 
+	SDL_SetRenderDrawColor( E.gameRenderer, 255,255,255,255);
+
 	gameSurface = SDL_GetWindowSurface(gameWindow);
 	// Welp, looks like everything is good
 	return true;

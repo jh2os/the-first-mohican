@@ -15,7 +15,7 @@ bool Texture::LoadTexture(std::string filename) {
 	if (tmpSurface == NULL) printf("unable to load image \"%s\" \n",filename.c_str());
 	
 	// This didn't really do anything
-	//SDL_SetColorKey( Box, SDL_FALSE, SDL_MapRGB( Box->format, 0, 0xFF, 0xFF ) );
+	SDL_SetColorKey( tmpSurface, SDL_TRUE, SDL_MapRGB( tmpSurface->format, 0x00, 0xFF, 0xFF ) );
 
 	eTexture = SDL_CreateTextureFromSurface(E.gameRenderer, tmpSurface);
 	if (eTexture == NULL) printf("unable to load texture\n");

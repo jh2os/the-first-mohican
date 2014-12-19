@@ -111,19 +111,18 @@ void AppMainGame::OnLoop() {
 			break;
 			
 	}
+	counter++;
 }
 
 void AppMainGame::OnRender() {
-	//SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0x00, 0x00, 0x00) );
-	//SDL_SetRenderDrawColor( E.gameRenderer, 0,0,0,255);
-	//SDL_SetTextureBlendMode(tex, SDL_BLENDMODE_NONE);
-	//SDL_SetTextureAlphaMod( tex, 20);
 
-	text->write("Fus Ro Dahh", 0,0);
+	std::ostringstream convert;
+	convert << counter;
+
 	tMan.DisplayTexture((double)0);
 	taggedImg.SetDestRect( (int)texX, (int)texY, (int)texH, (int)texW );
 	taggedImg.DisplayTexture(angle);
-	
+	text->write( convert.str(), 20, 430);
 }
 
 void AppMainGame::OnKeyDown(SDL_Keycode key) {

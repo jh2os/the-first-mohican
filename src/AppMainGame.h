@@ -24,6 +24,8 @@ public:
 	float texX;
 	float texY;
 
+	unsigned int counter;
+
 	int dir;
 	int count;
 
