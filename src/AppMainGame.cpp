@@ -18,15 +18,17 @@ AppMainGame::AppMainGame() {
 }
 
 void AppMainGame::OnDeactivate() {
-
+	taggedImg.DestroyTexture();
+	tMan.DestroyTexture();
 }
 
 void AppMainGame::OnLoop() {
+	float distance = E.fps.GetSpeedFactor() * 10;
 	switch(dir) {
 		case 1:
 			if (count < 2) {	
 				if (texX + texW < E.GetWindowWidth())
-					texX++;
+					texX += distance;
 				else
 					dir = 2;
 				
@@ -34,7 +36,7 @@ void AppMainGame::OnLoop() {
 			}
 			else {
 				if ( texX + (texW / 2) < (E.GetWindowWidth() / 2))
-					texX++;
+					texX += distance;
 				else
 					dir = 2;
 					break;
@@ -42,7 +44,7 @@ void AppMainGame::OnLoop() {
 		case 2:
 			if (count < 2) {	
 				if (texY + texH < E.GetWindowHeight()) {
-					texY++;
+					texY += distance;
 				}
 				else {
 					dir = 3;
@@ -53,29 +55,29 @@ void AppMainGame::OnLoop() {
 			}
 			else {
 				if ( texY + (texH / 2) < (E.GetWindowHeight() / 2))
-					texY++;
+					texY += distance;
 				else
 					dir = 5;
 					break;
 			}
 		case 3:
 				if (texX > 0)
-					texX--;
+					texX -= distance;
 				else
 					dir = 4;	
 			break;
 		case 4:
 				if (texY > 0)
-					texY--;
+					texY -= distance;
 				else
 					dir = 1;
 			break;
 		case 5:
 			if (texX > 0 && texY > 0) {
-			texX--;
-			texY--;
-			texW += 2;
-			texH += 2;
+			texX -= distance;
+			texY -= distance;
+			texW += distance * distance;
+			texH += distance * distance;
 			}
 			else {
 				dir = 6;
@@ -87,10 +89,10 @@ void AppMainGame::OnLoop() {
 			break;
 		case 6:
 					if (texW > 0 && texH > 0) {
-			texX++;
-			texY++;
-			texW -= 2;
-			texH -= 2;
+			texX += distance;
+			texY += distance;
+			texW -= distance * distance;
+			texH -= distance * distance;
 			}
 			else {
 				dir = 5;
@@ -110,11 +112,11 @@ void AppMainGame::OnLoop() {
 
 void AppMainGame::OnRender() {
 	//SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0x00, 0x00, 0x00) );
-	SDL_SetRenderDrawColor( E.gameRenderer, 0,0,0,255);
+	//SDL_SetRenderDrawColor( E.gameRenderer, 0,0,0,255);
 	//SDL_SetTextureBlendMode(tex, SDL_BLENDMODE_NONE);
 	//SDL_SetTextureAlphaMod( tex, 20);
 
-	taggedImg.SetDestRect( texX, texY, texH, texW );
+	taggedImg.SetDestRect( (int)texX, (int)texY, (int)texH, (int)texW );
 	taggedImg.DisplayTexture(angle);
 	tMan.DisplayTexture((double)0);	
 

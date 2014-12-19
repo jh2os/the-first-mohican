@@ -28,6 +28,7 @@ public:
 	void SetDestRect(int cX, int cY, int cW, int cH );
 	bool LoadTexture(std::string);
 	void DisplayTexture(double angle);
+	void DestroyTexture();
 };
 
 #endif
