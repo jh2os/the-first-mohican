@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <string>
+#include "FPS.h"
 #include "AppState.h"
 #include "Texture.h"
 
@@ -17,6 +18,8 @@ class EngineResources {
 		SDL_Window* gameWindow;
 		SDL_Renderer* gameRenderer;
 		SDL_Surface* gameSurface;
+
+		FPS fps;
 		
 		AppState* appState;
 		
