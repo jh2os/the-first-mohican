@@ -24,26 +24,34 @@ class Text {
 		
 		const int DEFAULT_SIZE = 32;
 		char const* DEFAULT_FONT = "Transformers-Movie.ttf";
-		char const* FONTS_LOCATION = "./src/ttf/";
-		const SDL_Color DEFAULT_COLOR = {0, 0, 0};
+		char const* FONTS_LOCATION = "./assets/fonts/";
+		const SDL_Color DEFAULT_COLOR = RED;
 		
-		int currentFont;
-		int currentSize;
+		std::string currentFont = DEFAULT_FONT;
+		int currentSize = 32;
+		SDL_Color currentColor = DEFAULT_COLOR;
 		
 	public:
 		/***********************************
-        		fonts
+        		colors
 		************************************/
-		enum {
-			DEFAULT
-		};
+		static constexpr SDL_Color WHITE = {255, 255, 255};
+		static constexpr SDL_Color BLACK = {0, 0, 0};
+		static constexpr SDL_Color GREEN = {0, 255, 0};
+		static constexpr SDL_Color RED = {255, 0, 0};
+		static constexpr SDL_Color BLUE = {0, 0, 255};
 		
 		/***********************************
         		methods
 		************************************/
 		Text();
+		Text(std::string filename, int size, SDL_Color color);
 		
-		void write(char* text, int x, int y);
-		void write(char* text, int x, int y, int fontType, int size);
+		/*
+		void setColor(SDL_Color color);
+		void setFont(std::string filename);
+		void setTextSize(int size);
+		*/
+		void write(std::string text, int x, int y);
 };
 #endif

@@ -3,7 +3,13 @@
 #include <string.h>
 
 AppMainMenu::AppMainMenu() {
-	text = new Text();
+	// default
+	//text = new Text();
+	
+	// custom
+	text = new Text("Transformers-Movie.ttf", 50, Text::RED);
+	
+	// both work!
 }
 
 void AppMainMenu::OnDeactivate() {
@@ -24,10 +30,10 @@ void AppMainMenu::OnRender() {
 	// clear screen
 	SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0xFF, 0xFF, 0xFF) );
 	// list menu options now
-	std::string str = "test";
-	char* chr = new char[str.length() + 1];
-	strcpy(chr, str.c_str());
-	text->write(chr, 0, 0);
+	
+	// testing.....
+	text->write("test1", 0, 0);
+	text->write("test2", 0, 50);
 }
 
 void AppMainMenu::OnKeyDown(SDL_Keycode key) {
@@ -39,7 +45,12 @@ void AppMainMenu::OnKeyDown(SDL_Keycode key) {
 		case SDLK_RIGHT: {
 			// go to the main game
 			E.SetActiveAppState(2);
-			break;		
+			break;
+		}
+		case SDLK_LEFT: {
+			// go to the main game
+			std::cout << "this shall be the snake! game" << std::endl;
+			break;
 		}
 	}
 }
