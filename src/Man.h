@@ -15,7 +15,7 @@ class Man {
 	Text* help; 
 	
 	Man() {
-		tMan.LoadTexture("assets/bitmaps/man.bmp");
+		tMan.LoadTexture("assets/bitmaps/man.png");
 		manX = 250;
 		manY = 250;
 		callforhelp = false;
@@ -47,8 +47,8 @@ class Man {
 		}
 		
 		// Add it
-		manX += nX;
-		manY += nY;
+		manX += nX * 3;
+		manY += nY * 3;
 			
 	}
 	void Render() {

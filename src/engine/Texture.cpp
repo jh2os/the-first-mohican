@@ -11,7 +11,7 @@ Texture::Texture() {
 
 bool Texture::LoadTexture(std::string filename) {
 	
-	SDL_Surface* tmpSurface = SDL_LoadBMP( filename.c_str() );
+	SDL_Surface* tmpSurface = IMG_Load( filename.c_str() );
 	if (tmpSurface == NULL) printf("unable to load image \"%s\" \n",filename.c_str());
 	
 	// This didn't really do anything
@@ -21,6 +21,8 @@ bool Texture::LoadTexture(std::string filename) {
 	if (eTexture == NULL) printf("unable to load texture\n");
 	SDL_FreeSurface(tmpSurface);
 	
+	SDL_SetTextureBlendMode(eTexture, SDL_BLENDMODE_BLEND);
+
 	//SDL_SetTextureBlendMode(eTexture, SDL_BLENDMODE_NONE);
 	SDL_QueryTexture( eTexture, NULL, NULL, &w, &h );
 

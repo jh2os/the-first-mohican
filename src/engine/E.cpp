@@ -20,12 +20,25 @@ bool EngineResources::Start() {
 	}
 
 	// Start TTF
-	if(TTF_Init() == -1){
+	if (TTF_Init() == -1) {
 		printf("SDL_ttf could not initialize! SDL_Error: %s\n", SDL_GetError() );
 		return false;
 	}
-	// set a font
-	//font = TTF_OpenFont("ttf/Transformers-Movie.ttf", 32);
+
+	 	
+
+	// load support for the JPG and PNG image formats (From sdl docs)
+	int flags=IMG_INIT_JPG|IMG_INIT_PNG;
+	int initted=IMG_Init(flags);
+	if (((initted)&(flags)) != flags) {
+		printf("IMG_Init: Failed to init required jpg and png support!\n");
+		printf("IMG_Init: %s\n", IMG_GetError());
+		// handle error
+	}
+
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) { 
+		printf("SDL_mixer could not initialize! SDL_Error: %s\n", Mix_GetError());
+	}
 
 	// Declare our window
 	gameWindow = SDL_CreateWindow("11th-fret Game Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, windowWidth,windowHeight, 0);
@@ -41,8 +54,12 @@ bool EngineResources::Start() {
 		return false;
 	}
 
+	SDL_SetRenderDrawBlendMode(E.gameRenderer, SDL_BLENDMODE_BLEND);
+	//SDL_SetTextureBlendMode(textures[i], SDL_BLENDMODE_BLEND);
 	SDL_SetRenderDrawColor( E.gameRenderer, 255,255,255,255);
 
+	
+	// TODO this needs to be removed
 	gameSurface = SDL_GetWindowSurface(gameWindow);
 	// Welp, looks like everything is good
 	return true;
