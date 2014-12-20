@@ -17,6 +17,7 @@ AppMainGame::AppMainGame() {
 	dir = 1;
 	count = 1;
 	angle = 0.0;
+	counter = 0;
 }
 
 void AppMainGame::OnDeactivate() {
