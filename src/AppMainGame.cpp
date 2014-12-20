@@ -5,7 +5,7 @@
 AppMainGame::AppMainGame() {
 
 	taggedImg.LoadTexture("assets/bitmaps/x.bmp");
-	tMan.LoadTexture("assets/bitmaps/man.bmp");
+	//tMan.LoadTexture("assets/bitmaps/man.bmp");
 	
 	text = new Text();
 
@@ -21,11 +21,20 @@ AppMainGame::AppMainGame() {
 
 void AppMainGame::OnDeactivate() {
 	taggedImg.DestroyTexture();
-	tMan.DestroyTexture();
+	//tMan.DestroyTexture();
+	dudebro.Destroy();
 	text = NULL;
 }
 
 void AppMainGame::OnLoop() {
+	
+	//Lets call our man to the mouse pointer for he is indeed the chosen one
+	int x = 0;
+	int y =0;
+	SDL_GetMouseState(&x, &y);
+	//std::cout << x << " " << y << std::endl;
+	dudebro.Follow(x, y);
+
 	float distance = 1;//E.fps.GetSpeedFactor() * 10;
 	switch(dir) {
 		case 1:
@@ -119,9 +128,10 @@ void AppMainGame::OnRender() {
 	std::ostringstream convert;
 	convert << counter;
 
-	tMan.DisplayTexture((double)0);
 	taggedImg.SetDestRect( (int)texX, (int)texY, (int)texH, (int)texW );
 	taggedImg.DisplayTexture(angle);
+	//tMan.DisplayTexture((double)0);
+	dudebro.Render();
 	text->write( convert.str(), 20, 430);
 }
 
