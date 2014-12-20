@@ -35,7 +35,7 @@ bool EngineResources::Start() {
 	}
 
 	// Declare our Renderer
-	gameRenderer = SDL_CreateRenderer( &*gameWindow, -1, SDL_RENDERER_SOFTWARE);
+	gameRenderer = SDL_CreateRenderer( &*gameWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (gameRenderer == NULL) {
 		printf("Renderer could not be created! SDL_Error: %s\n", SDL_GetError());
 		return false;

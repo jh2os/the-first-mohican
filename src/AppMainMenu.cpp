@@ -28,7 +28,7 @@ void AppMainMenu::OnLoop() {
 
 void AppMainMenu::OnRender() {
 	// clear screen
-	SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0xFF, 0xFF, 0xFF) );
+	//SDL_FillRect( E.gameSurface, NULL, SDL_MapRGB( E.gameSurface->format, 0xFF, 0xFF, 0xFF) );
 	// list menu options now
 	
 	// testing.....

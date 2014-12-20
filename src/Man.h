@@ -46,9 +46,9 @@ class Man {
 			else callforhelp = false;
 		}
 		
-		// Add it and slow it down by a 4th
-		manX += nX / 4;
-		manY += nY / 4;
+		// Add it
+		manX += nX;
+		manY += nY;
 			
 	}
 	void Render() {
