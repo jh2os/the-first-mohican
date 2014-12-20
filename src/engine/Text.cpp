@@ -11,7 +11,7 @@ Text::Text() {
 Text::Text(std::string filename, int size, SDL_Color color) {
 	// NOTE: change the open font to reflect filename
 	std::string loc = std::string(FONTS_LOCATION) + DEFAULT_FONT;
-	font = TTF_OpenFont(loc.c_str(), DEFAULT_SIZE);
+	font = TTF_OpenFont(loc.c_str(), size);
 	texture = NULL;
 	currentFont = filename;
 	currentSize = size;
@@ -52,6 +52,7 @@ void Text::write(std::string text, int x, int y){
 			SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 			SDL_RenderCopy(E.gameRenderer, texture, NULL, &rect);
 			SDL_FreeSurface(surface);
+			SDL_DestroyTexture(texture);
 		}
 	}
 	else{

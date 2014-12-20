@@ -4,6 +4,7 @@
 #include "engine/AppState.h"
 #include "engine/E.h"
 #include "engine/Text.h"
+#include "Man.h"
 
 class AppMainGame : public AppState {
 private:
@@ -15,7 +16,8 @@ public:
 	SDL_Point center;
 
 	Texture taggedImg;
-	Texture tMan;
+	//Texture tMan;
+	Man dudebro;
 
 	Text* text;
 
@@ -23,6 +25,8 @@ public:
 	float texH;
 	float texX;
 	float texY;
+
+	unsigned int counter;
 
 	int dir;
 	int count;
