@@ -21,6 +21,7 @@ int main( int argc, char* args[] )
 	// done
 	return 0;
 	
+	// what??
 	switch(1){
 	case 1:
 		std::cout << "hello" << std::endl;

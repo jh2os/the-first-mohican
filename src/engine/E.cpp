@@ -65,6 +65,10 @@ bool EngineResources::Start() {
 	return true;
 }
 
+void EngineResources::SetDrawColor(int g, int r, int b){
+	SDL_SetRenderDrawColor( E.gameRenderer, g,r,b,255);
+}
+
 void EngineResources::SetActiveAppState(int App){
 	appState = appState->SetActiveAppState(App);
 }

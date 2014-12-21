@@ -30,6 +30,7 @@ class EngineResources {
 		void SetWindowResolution(int x, int y);
 		int GetWindowWidth();
 		int GetWindowHeight();
+		void SetDrawColor(int r, int g, int b);
 
 	private:
 		int windowWidth;

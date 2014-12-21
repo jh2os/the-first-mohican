@@ -49,7 +49,7 @@ void AppMainMenu::OnKeyDown(SDL_Keycode key) {
 		}
 		case SDLK_LEFT: {
 			// go to the main game
-			std::cout << "this shall be the snake! game" << std::endl;
+			E.SetActiveAppState(3);
 			break;
 		}
 	}
