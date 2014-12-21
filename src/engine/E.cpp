@@ -36,7 +36,7 @@ bool EngineResources::Start() {
 		// handle error
 	}
 
-	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) { 
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) < 0) { 
 		printf("SDL_mixer could not initialize! SDL_Error: %s\n", Mix_GetError());
 	}
 
@@ -73,13 +73,13 @@ void EngineResources::Quit() {
 	SDL_FreeSurface(gameSurface);
 	SDL_DestroyRenderer(gameRenderer);
 	SDL_DestroyWindow(gameWindow);
-	//TTF_CloseFont(font);
 	
 	appState = NULL;
 	
         // Quit TTF
         TTF_Quit();
 	SDL_Quit();
+	Mix_CloseAudio();
 	running = false;
 }
 
