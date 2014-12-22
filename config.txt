@@ -1,0 +1,4 @@
+screenWidth = 640
+screenHeight = 480
+debugOn = true
+maxVolume = 128
