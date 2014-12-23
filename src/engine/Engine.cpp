@@ -1,6 +1,7 @@
 #include "Engine.h"
 
 Engine::Engine() {
+	// this will set the config and debug
 	E.Start();
 }
 
@@ -22,7 +23,7 @@ void Engine::OnLoop() {
 
 		while(SDL_PollEvent(&Event)) {
 			// NOTE: I think this is too much? Or should be handled in a different way
-		  OnEvent(&Event);
+			OnEvent(&Event);
 		}
 	}
 }

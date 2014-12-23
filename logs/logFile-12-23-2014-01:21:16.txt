@@ -1,0 +1,1 @@
+[eflat - Message] 12/23/2014 01:21:16 - Logger has been initialized.

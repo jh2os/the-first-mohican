@@ -8,9 +8,15 @@ using namespace std;
 
 class Configuration{
 	public:
-		Configuration();
+		Configuration(string filename);
 		bool LoadConfigurations();
 		void Destroy();
+		int getScreenWidth();
+		int getScreenHeight();
+		bool isDebugOn();
+		int getMixerVolume();
+		string getLoggerDirectory();
+		bool parseBoolean(string str);
 
 	private:
 		fstream fileStream;
@@ -19,5 +25,6 @@ class Configuration{
 		int screenHeight;
 		bool debugOn;
 		int mixerVolume;
+		string loggerDirectory;
 };
 #endif
