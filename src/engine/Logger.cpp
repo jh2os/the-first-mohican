@@ -8,6 +8,7 @@ Logger::Logger(string dir){
 }
 
 void Logger::Destroy(){
+	LogMessage("Closing logger. Bye (and you've been tagged -mc)");
 	fileStream.close();
 }
 

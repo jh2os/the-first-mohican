@@ -13,7 +13,7 @@ AppMainMenu::AppMainMenu() {
 }
 
 void AppMainMenu::OnDeactivate() {
-	
+	delete text;
 }
 
 void AppMainMenu::OnEvent(SDL_Event* event) {

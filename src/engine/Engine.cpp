@@ -43,6 +43,6 @@ void Engine::OnEvent(SDL_Event* event) {
 }
 
 void Engine::OnExit() {
-	//E.SetActiveAppState(0);
+	E.SetActiveAppState(0);
 	E.Quit();
 }
