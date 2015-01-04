@@ -2,7 +2,7 @@
 
 Configuration::Configuration(string filename){
 	// open the filestream
-	fileStream.open("config.txt", ios::binary | fstream::in | fstream::out | fstream::app);
+	fileStream.open("./config.txt", fstream::in);
 }
 
 void Configuration::Destroy(){
@@ -14,7 +14,9 @@ bool Configuration::LoadConfigurations(){
 		string data;
 		string search;
 		size_t found;
+        std::cout << "suck a nut" << std::endl;
 		while(getline(fileStream,data)){
+            std::cout << data << std::endl;
 			// TODO note that the config options need to have {= (space) value}. This needs to support more.
 			// case: screenWidth
 			search = "screenWidth = ";
@@ -66,6 +68,9 @@ bool Configuration::LoadConfigurations(){
 			return false;
 		}
 	}
+    else{
+        std::cout << "asdasd" << std::endl;
+    }
 	return true;
 }
 

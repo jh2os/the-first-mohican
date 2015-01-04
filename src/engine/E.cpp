@@ -58,7 +58,7 @@ void EngineResources::Start() {
 	}
 
 	// Declare our window
-	gameWindow = SDL_CreateWindow("11th-fret Game Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, E.configs->getScreenWidth(),E.configs->getScreenHeight(), 0);
+	gameWindow = SDL_CreateWindow("11th-fret Game Engine", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, E.configs->getScreenWidth(), E.configs->getScreenHeight(), 0);
 	if(gameWindow == NULL) {
 		logger->LogError("Window could not be created! SDL_Error: " + string(SDL_GetError()));
 		running = false;

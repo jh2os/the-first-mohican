@@ -7,7 +7,8 @@ AppMainGame::AppMainGame() {
 	taggedImg.LoadTexture("assets/bitmaps/x.bmp");
 	//tMan.LoadTexture("assets/bitmaps/man.bmp");
 	
-	text = new Text();
+    SDL_Color red = {255, 0, 0};
+    text = new Text("Transformers-Movie.ttf", 50, red);
 
 	texX = taggedImg.sourceRect.x;
 	texY = taggedImg.sourceRect.y;

@@ -5,7 +5,7 @@
 ********************************************************************/
 //Using SDL and standard IO
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
+#include <SDL2_ttf/SDL_ttf.h>
 #include <stdio.h>
 #include <string.h>
 #include <sstream>
@@ -25,21 +25,16 @@ class Text {
 		const int DEFAULT_SIZE = 32;
 		char const* DEFAULT_FONT = "Transformers-Movie.ttf";
 		char const* FONTS_LOCATION = "./assets/fonts/";
-		const SDL_Color DEFAULT_COLOR = RED;
+        const SDL_Color DEFAULT_COLOR = {255, 0, 0};
 		
 		std::string currentFont = DEFAULT_FONT;
 		int currentSize = 32;
-		SDL_Color currentColor = DEFAULT_COLOR;
+		SDL_Color currentColor = {255, 0, 0};
 		
 	public:
 		/***********************************
         		colors
 		************************************/
-		static constexpr SDL_Color WHITE = {255, 255, 255};
-		static constexpr SDL_Color BLACK = {0, 0, 0};
-		static constexpr SDL_Color GREEN = {0, 255, 0};
-		static constexpr SDL_Color RED = {255, 0, 0};
-		static constexpr SDL_Color BLUE = {0, 0, 255};
 		
 		/***********************************
         		methods

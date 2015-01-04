@@ -3,9 +3,12 @@
 #include <iostream>
 #include "engine/Engine.h"
 
+
+
 int main( int argc, char* args[] )
 {
-	//int screen_width = 640;
+    
+    //int screen_width = 640;
 	//int screen_height = 480;
 	
 	// setup the engine
@@ -28,14 +31,5 @@ int main( int argc, char* args[] )
 	// done
 	return 0;
 	
-	switch(1){
-	case 1:
-		std::cout << "hello" << std::endl;
-	case 2:
-		std::cout << "hello" << std::endl;
-		break;
-	case 3:
-		std::cout << "this was a triumph" << std::endl;
-		break;
-	}
+	
 }
