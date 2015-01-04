@@ -2,7 +2,14 @@
 	#define APPMAINMENU_H
 
 #include "engine/AppState.h"
+
+#ifdef APPLE
 #include <SDL2_ttf/SDL_ttf.h>
+#elif LINUX
+#include <SDL2/SDL_ttf.h>
+#elif WIN32
+#endif
+
 #include <iostream>
 #include "engine/E.h"
 #include "engine/Text.h"

@@ -5,7 +5,14 @@
 ********************************************************************/
 //Using SDL and standard IO
 #include <SDL2/SDL.h>
+
+#ifdef APPLE
 #include <SDL2_ttf/SDL_ttf.h>
+#elif LINUX
+#include <SDL2/SDL_ttf.h>
+#elif WIN32
+#endif
+
 #include <stdio.h>
 #include <string.h>
 #include <sstream>

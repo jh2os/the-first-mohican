@@ -2,16 +2,19 @@
 	#define ENGINERESOURCES_H
 
 #include <SDL2/SDL.h>
+
+
 #ifdef APPLE
 #include <SDL2_ttf/SDL_ttf.h>
 #include <SDL2_image/SDL_image.h>
 #include <SDL2_mixer/SDL_mixer.h>
-#elseif LINUX
+#elif LINUX
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
-#elseif WIN32
+#elif WIN32
 #endif
+
 #include <string>
 #include "FPS.h"
 #include "AppState.h"

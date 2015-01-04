@@ -3,7 +3,14 @@
 
 #include <string>
 #include <SDL2/SDL.h>
+
+#ifdef APPLE
 #include <SDL2_image/SDL_image.h>
+#elif LINUX
+#include <SDL2/SDL_image.h>
+#elif WIN32
+#endif
+
 #include "E.h"
 
 enum textureFlip{

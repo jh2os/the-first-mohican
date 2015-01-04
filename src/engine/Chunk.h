@@ -3,7 +3,14 @@
 
 #include <string>
 #include <SDL2/SDL.h>
+
+#ifdef APPLE
 #include <SDL2_mixer/SDL_mixer.h>
+#elif LINUX
+#include <SDL2/SDL_mixer.h>
+#elif WIN32
+#endif
+
 #include "E.h"
 
 class Chunk {
