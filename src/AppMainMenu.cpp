@@ -7,7 +7,8 @@ AppMainMenu::AppMainMenu() {
 	//text = new Text();
 	
 	// custom
-	text = new Text("Transformers-Movie.ttf", 50, Text::RED);
+    SDL_Color red = {255, 0, 0};
+    text = new Text("Transformers-Movie.ttf", 50, red);
 	
 	// both work!
 }

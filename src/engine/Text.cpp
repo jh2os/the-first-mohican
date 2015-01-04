@@ -12,6 +12,7 @@ Text::Text(std::string filename, int size, SDL_Color color) {
 	// NOTE: change the open font to reflect filename
 	std::string loc = std::string(FONTS_LOCATION) + DEFAULT_FONT;
 	font = TTF_OpenFont(loc.c_str(), size);
+    std::cout << loc << std::endl;
 	texture = NULL;
 	currentFont = filename;
 	currentSize = size;

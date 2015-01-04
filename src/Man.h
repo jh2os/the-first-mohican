@@ -19,7 +19,8 @@ class Man {
 		manX = 250;
 		manY = 250;
 		callforhelp = false;
-		help = new Text("Transformers-Movie.ttf", 16, Text::RED);
+        SDL_Color red = {255, 0, 0};
+		help = new Text("Transformers-Movie.ttf", 16, red);
 	}
 	void Follow(int newX, int newY) {
 

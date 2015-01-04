@@ -2,7 +2,7 @@
 	#define APPMAINMENU_H
 
 #include "engine/AppState.h"
-#include <SDL2/SDL_ttf.h>
+#include <SDL2_ttf/SDL_ttf.h>
 #include <iostream>
 #include "engine/E.h"
 #include "engine/Text.h"
