@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <time.h>
 
 using namespace std;
 
@@ -17,9 +18,9 @@ class Logger{
 
 	private:
 		ofstream fileStream;
-		
+
 		const string ENGINENAME = "eflat";
-		
+
 		string getTime(string format="");
 };
 #endif

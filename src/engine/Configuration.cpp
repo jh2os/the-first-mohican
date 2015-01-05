@@ -1,5 +1,7 @@
 #include "Configuration.h"
 
+using namespace std;
+
 Configuration::Configuration(string filename){
 	// open the filestream
 	fileStream.open("./config.txt", fstream::in);
@@ -21,7 +23,9 @@ bool Configuration::LoadConfigurations(){
 			found = data.find(search);
 			if (found!=string::npos){
 				data = data.substr(search.length(), data.length());
-				this->screenWidth = stoi(data);
+                int num;
+                if ( ! (istringstream(data) >> num) ) num = 0;
+				this->screenWidth = num;
 				cout << data << endl;
 				continue;
 			}
@@ -30,7 +34,9 @@ bool Configuration::LoadConfigurations(){
 			found = data.find(search);
 			if (found!=string::npos){
 				data = data.substr(search.length(), data.length());
-				this->screenHeight = stoi(data);
+				int num;
+                if ( ! (istringstream(data) >> num) ) num = 0;
+				this->screenHeight = num;
 				cout << data << endl;
 				continue;
 			}
@@ -48,7 +54,9 @@ bool Configuration::LoadConfigurations(){
 			found = data.find(search);
 			if (found!=string::npos){
 				data = data.substr(search.length(), data.length());
-				this->mixerVolume = stoi(data);
+				int num;
+                if ( ! (istringstream(data) >> num) ) num = 0;
+				this->mixerVolume = num;
 				cout << data << endl;
 				continue;
 			}

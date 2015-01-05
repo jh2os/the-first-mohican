@@ -13,6 +13,9 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #elif WIN32
+#include "SDL_ttf.h"
+#include "SDL_image.h"
+#include "SDL_mixer.h"
 #endif
 
 #include <string>
@@ -33,7 +36,7 @@ class EngineResources {
 		void SetWindowResolution(int x, int y);
 		int GetWindowWidth();
 		int GetWindowHeight();
-		
+
 		bool running;
 		SDL_Window* gameWindow;
 		SDL_Renderer* gameRenderer;

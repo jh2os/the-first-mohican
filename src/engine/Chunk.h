@@ -9,6 +9,7 @@
 #elif LINUX
 #include <SDL2/SDL_mixer.h>
 #elif WIN32
+#include "SDL_mixer.h"
 #endif
 
 #include "E.h"
@@ -20,7 +21,7 @@ private:
 
 public:
 	Chunk();
-	
+
 	bool Load(std::string filename);
 	void Play();
 	void Pause();

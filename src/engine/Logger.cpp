@@ -29,7 +29,7 @@ string Logger::getDate(string format){
 		// default format
 		format = "%m-%d-%Y-%H:%M:%S";
 	}
-	
+
 	time_t rawtime;
 	tm* timeinfo;
 	char buffer [80];
@@ -38,6 +38,6 @@ string Logger::getDate(string format){
 	timeinfo = localtime(&rawtime);
 
 	strftime(buffer, 80, format.c_str(), timeinfo);
-	
+
 	return buffer;
 }

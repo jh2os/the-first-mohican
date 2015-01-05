@@ -1,8 +1,9 @@
 #ifndef CONFIGURATION_H
 	#define CONFIGURATION_H
-	
+
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ class Configuration{
 
 	private:
 		fstream fileStream;
-		
+
 		int screenWidth;
 		int screenHeight;
 		bool debugOn;
