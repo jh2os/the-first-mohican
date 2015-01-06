@@ -4,4 +4,6 @@ codeblocks/Release/*
 codeblocks/Release/
 codeblocks/obj/
 codeblocks/obj/*
+documentation/
+documentation/*
 
