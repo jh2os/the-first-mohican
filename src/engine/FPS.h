@@ -5,14 +5,15 @@
 class FPS {
 	private:
 		unsigned int oldTime;
-		int lastTime;
+		unsigned int lastTime;
 		float speedFactor;
-		int numFrames;
-		int frames;
+		int fps;
 	public:
 		FPS();
 		void OnLoop();
 		int GetFPS();
 		float GetSpeedFactor();
+		float GetSpeedFactor(int distance);
+		float GetSpeedFactor(float distance);
 };
 #endif

@@ -48,9 +48,10 @@ class Man {
 		}
 		
 		// Add it
-		manX += nX * 3;
-		manY += nY * 3;
-			
+		float moveX = nX *  E.fps.GetSpeedFactor(100);
+		float moveY = nY * E.fps.GetSpeedFactor(100);
+		manX += moveX;
+		manY += moveY;
 	}
 	void Render() {
 		tMan.SetDestRect((int)manX, (int)manY, tMan.sourceRect.w, tMan.sourceRect.h);

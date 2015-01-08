@@ -37,7 +37,7 @@ void AppMainGame::OnLoop() {
 	//std::cout << x << " " << y << std::endl;
 	dudebro.Follow(x, y);
 
-	float distance = 1;//E.fps.GetSpeedFactor() * 10;
+	float distance = E.fps.GetSpeedFactor(100);
 	switch(dir) {
 		case 1:
 			if (count < 2) {	
@@ -128,13 +128,14 @@ void AppMainGame::OnLoop() {
 void AppMainGame::OnRender() {
 
 	std::ostringstream convert;
-	convert << counter;
+	convert << E.fps.GetFPS();//counter;
+	std::string fpsstring = "FPS: " + convert.str(); 
 
 	taggedImg.SetDestRect( (int)texX, (int)texY, (int)texH, (int)texW );
 	taggedImg.DisplayTexture(angle);
 	//tMan.DisplayTexture((double)0);
 	dudebro.Render();
-	text->write( convert.str(), 20, 430);
+	text->write( fpsstring, 20, 430);
 }
 
 void AppMainGame::OnKeyDown(SDL_Keycode key) {
