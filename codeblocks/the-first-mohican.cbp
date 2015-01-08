@@ -6,17 +6,8 @@
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/the-first-mohican" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/the-first-mohican" prefix_auto="1" extension_auto="1" />
+				<Option output="Release/the-first-mohican" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -29,8 +20,15 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
+			<Add option="-DWIN32" />
+			<Add directory="C:/Users/mitchellcox5/Desktop/42/SDL2/SDL2_compiler (32 bit)/include/SDL2" />
 		</Compiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer" />
+			<Add directory="C:/Users/mitchellcox5/Desktop/42/SDL2/SDL2_compiler (32 bit)/lib" />
+		</Linker>
 		<Unit filename="../assets/bitmaps/man.bmp" />
 		<Unit filename="../assets/bitmaps/man.jpg" />
 		<Unit filename="../assets/bitmaps/man.png" />
