@@ -5,6 +5,8 @@ Sprite::Sprite() {
 	currentAnimation = 0;
 	currentFrame = 0;
 	targetTime = 0;
+	currentLoop = 0;
+	loopLimit = -1;
 
 }
 
@@ -35,6 +37,8 @@ int Sprite::getAnimationFrame() {
 void Sprite::setAnimation(int animationIndex, int loop) {
 	currentAnimation = animationIndex;
 	currentFrame = 0;
+	currentLoop = 0;
+	loopLimit = loop;
 	targetTime = E.fps.getTime() + (1000 / animations[currentAnimation].fps);
 
 }
@@ -42,7 +46,21 @@ void Sprite::setAnimation(int animationIndex, int loop) {
 void Sprite::setAnimation(int animationIndex, int loop, int startingFrame) {
 	currentAnimation = animationIndex;
 	currentFrame = startingFrame;
+	currentLoop = 0;
+	loopLimit = loop;
 	targetTime = E.fps.getTime() + (1000/ animations[currentAnimation].fps);
+}
+
+void Sprite::queAnimation(int animationIndex, int loop, int startingFrame) {
+	AnimationQueItem temp;
+	temp.animation = animationIndex;
+	temp.looptype = loop;
+	temp.startingFrame = startingFrame;
+	que.push_back(temp);
+}
+
+void Sprite::clearQue() {
+	que.clear();
 }
 
 void Sprite::displaySprite(int x, int y) {
@@ -50,11 +68,30 @@ void Sprite::displaySprite(int x, int y) {
 	
 	// Loop here just in case 2 or more frames should have ran inbetween the loops
 	while (currentTime >= targetTime) {
-		currentFrame = (currentFrame + 1 >= animations[currentAnimation].totalFrames) ? 0 : currentFrame + 1;
-		targetTime = currentTime + (1000 / animations[currentAnimation].fps);
+		//std::cout << currentTime << std::endl;
+		if ( currentLoop < loopLimit || loopLimit == -1 ) {
+			if (currentFrame + 1 >= animations[currentAnimation].totalFrames) {
+				currentFrame = 0; 
+				currentLoop++;
+			} 
+			else {
+				currentFrame += 1;
+			}
+			targetTime = currentTime + (1000 / animations[currentAnimation].fps);
+		}
+		else {
+
+			if(que.size() > 0) {
+				que.erase(que.begin());
+				setAnimation(que[0].animation, que[0].looptype);
+			}
+			else {
+				targetTime = currentTime + (1000 / animations[currentAnimation].fps);
+			}
+		}
 	}
 
-	int xOffset = animations[currentAnimation].frameWidth * currentFrame;
+	int xOffset = animations[currentAnimation].x + animations[currentAnimation].frameWidth * currentFrame;
 	int yOffset = animations[currentAnimation].y;
 	int xWidth = animations[currentAnimation].frameWidth;
 	int yWidth = animations[currentAnimation].height;

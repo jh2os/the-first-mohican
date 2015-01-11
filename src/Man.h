@@ -8,7 +8,9 @@
 
 enum manAnimations {
 	STANDING,
-	CRYING
+	CRYINGSTART,
+	CRYING,
+	CRYINGEND
 };
 
 class Man {
@@ -22,8 +24,10 @@ class Man {
 	
 	Man() {
 		tMan.loadSpriteSheet("assets/bitmaps/ManSpritesheet.png");
-		tMan.addAnimation(0,0,100,100,100,1);
-		tMan.addAnimation(0,100,500,100, 100, 4);
+		tMan.addAnimation(0,0,100,100,100,4);//Standing
+		tMan.addAnimation(0,100,400,100,100,4); //Cryingstart
+		tMan.addAnimation(400,100,400,100,100,4);//crying
+		tMan.addAnimation(800,100,200,100,100,4); //cryingend
 		tMan.setAnimation(STANDING, -1);
 		manX = 250;
 		manY = 250;
@@ -46,7 +50,11 @@ class Man {
 		if (distance == 0) {
 			nX = 0.0;
 			nY = 0.0;
-			if (callforhelp) tMan.setAnimation(STANDING, -1);
+			if (callforhelp) {
+				tMan.clearQue();
+				tMan.setAnimation(CRYINGEND,0,0);
+				tMan.queAnimation(STANDING, -1, 0);
+			}
 			callforhelp = false;
 		}
 		else {
@@ -55,11 +63,20 @@ class Man {
 			nY = dY / distance;
 
 			if (distance > 30){
-				if (!callforhelp) tMan.setAnimation(CRYING, -1);
+				if (!callforhelp) {
+					tMan.clearQue();
+					tMan.setAnimation(CRYINGSTART, 1, 0);
+					tMan.setAnimation(CRYING, -1, 0);
+				}
 				callforhelp = true;
 			}
 			else {
-				if (callforhelp) tMan.setAnimation(STANDING, -1);
+				if (callforhelp) {
+					tMan.clearQue();
+					tMan.setAnimation(CRYINGEND,0,0);
+					tMan.queAnimation(STANDING, -1, 0);
+					
+				}
 				callforhelp = false;
 			}
 		}
