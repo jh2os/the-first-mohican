@@ -19,6 +19,9 @@ int FPS::GetFPS() {
 	return fps;
 }
 
+unsigned long int FPS::getTime() {
+	return lastTime;
+}
 float FPS::GetSpeedFactor() {
 	return speedFactor;
 }

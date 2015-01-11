@@ -4,6 +4,7 @@
 #include "engine/AppState.h"
 #include "engine/E.h"
 #include "engine/Text.h"
+#include "engine/Sprite.h"
 #include "Man.h"
 
 class AppMainGame : public AppState {

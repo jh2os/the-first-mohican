@@ -15,5 +15,6 @@ class FPS {
 		float GetSpeedFactor();
 		float GetSpeedFactor(int distance);
 		float GetSpeedFactor(float distance);
+		unsigned long int getTime();
 };
 #endif
