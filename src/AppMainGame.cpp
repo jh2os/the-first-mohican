@@ -23,7 +23,8 @@ AppMainGame::AppMainGame() {
 
 void AppMainGame::OnDeactivate() {
 	taggedImg.DestroyTexture();
-	//tMan.DestroyTexture();
+	dudebro.Destroy();
+	
 	dudebro.Destroy();
 	text = NULL;
 }

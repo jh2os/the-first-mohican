@@ -59,6 +59,18 @@ void Sprite::queAnimation(int animationIndex, int loop, int startingFrame) {
 	que.push_back(temp);
 }
 
+void Sprite::queAndSetAnimation(int animationIndex, int loop, int startingFrame) {
+	AnimationQueItem temp;
+	temp.animation = animationIndex;
+	temp.looptype = loop;
+	temp.startingFrame = startingFrame;
+	que.push_back(temp);
+
+	// Now we make sure that the current animation stops
+	currentLoop = 0;
+	loopLimit = 1;
+}
+
 void Sprite::clearQue() {
 	que.clear();
 }
@@ -102,5 +114,7 @@ void Sprite::displaySprite(int x, int y) {
 }
 
 void Sprite::destroy() {
-	//something goes here
+	animations.clear();
+	que.clear();
+	spriteSheet.DestroyTexture();
 }

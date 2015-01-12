@@ -51,8 +51,7 @@ class Man {
 			nX = 0.0;
 			nY = 0.0;
 			if (callforhelp) {
-				tMan.clearQue();
-				tMan.setAnimation(CRYINGEND,0,0);
+				tMan.queAndSetAnimation(CRYINGEND,0,0);
 				tMan.queAnimation(STANDING, -1, 0);
 			}
 			callforhelp = false;
@@ -72,8 +71,7 @@ class Man {
 			}
 			else {
 				if (callforhelp) {
-					tMan.clearQue();
-					tMan.setAnimation(CRYINGEND,0,0);
+					tMan.queAndSetAnimation(CRYINGEND,0,0);
 					tMan.queAnimation(STANDING, -1, 0);
 					
 				}

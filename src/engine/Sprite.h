@@ -37,6 +37,7 @@ public:
 	void setAnimation(int animationIndex, int loop);
 	void setAnimation(int animationIndex, int loop, int startingFrame);
 	void queAnimation(int animationIndex, int loop, int startingFrame = 0);
+	void queAndSetAnimation(int animationIndex, int loop, int startingFrame = 0);
 	void clearQue();
 	void displaySprite(int x, int y);
 	void destroy();
