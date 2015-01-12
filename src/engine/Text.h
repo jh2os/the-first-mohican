@@ -1,8 +1,5 @@
 #ifndef TEXT_H
 	#define TEXT_H
-/*******************************************************************
-        includes
-********************************************************************/
 //Using SDL and standard IO
 #include <SDL2/SDL.h>
 
@@ -21,11 +18,12 @@
 #include <iostream>
 #include "E.h"
 
+/**
+ * Text class. Wrapper closs to write text to the screen using SDL2
+ */
+
 class Text {
 	private:
-		/***********************************
-        		vars
-		************************************/
 		TTF_Font* font;
 		SDL_Rect rect;
 		SDL_Texture* texture;

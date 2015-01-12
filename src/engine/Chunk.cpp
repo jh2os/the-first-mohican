@@ -1,7 +1,7 @@
 #include "Chunk.h"
 
 Chunk::Chunk(){
-	chunk = NULL;
+	//chunk = NULL;
 }
 
 bool Chunk::Load(std::string filename){
@@ -17,9 +17,12 @@ void Chunk::Pause(){
 	
 }
 
-
 void Chunk::Stop(){
 	
+}
+
+void Chunk::Resume(){
+
 }
 
 void Chunk::Destroy(){

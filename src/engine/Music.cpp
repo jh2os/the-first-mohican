@@ -17,6 +17,9 @@ void Music::Pause(){
 	
 }
 
+void Music::Resume(){
+	
+}
 
 void Music::Stop(){
 	
