@@ -20,6 +20,9 @@ public:
 	//Texture tMan;
 	Man dudebro;
 
+	// Map test
+	Texture map[8][8];
+
 	Text* text;
 
 	float texW;

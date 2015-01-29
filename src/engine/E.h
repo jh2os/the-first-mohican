@@ -4,6 +4,7 @@
 #include "EngineIncludes.h"
 
 #include "FPS.h"
+#include "Camera.h"
 #include "AppState.h"
 #include "Logger.h"
 #include "Configuration.h"
@@ -26,6 +27,7 @@ class EngineResources {
 		Logger* logger;
 		Configuration* configs;
 		FPS fps;
+		Camera Gcamera;
 		AppState* appState;
 	private:
 		int windowHeight;

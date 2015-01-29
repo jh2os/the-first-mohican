@@ -29,8 +29,8 @@ class Man {
 		tMan.addAnimation(400,100,400,100,100,4);//crying
 		tMan.addAnimation(800,100,200,100,100,4); //cryingend
 		tMan.setAnimation(STANDING, -1);
-		manX = 250;
-		manY = 250;
+		manX = 0;
+		manY = 100;
 		callforhelp = false;
         SDL_Color red = {255, 0, 0};
 		help = new Text("Transformers-Movie.ttf", 16, red);
@@ -80,7 +80,7 @@ class Man {
 		}
 		
 		// Add it
-		float moveX = nX *  E.fps.GetSpeedFactor(100);
+		float moveX = nX * E.fps.GetSpeedFactor(100);
 		float moveY = nY * E.fps.GetSpeedFactor(100);
 		manX += moveX;
 		manY += moveY;
@@ -88,8 +88,20 @@ class Man {
 	void Render() {
 		//tMan.SetDestRect((int)manX, (int)manY, tMan.sourceRect.w, tMan.sourceRect.h);
 		//tMan.DisplayTexture(0.0);
-		tMan.displaySprite((int)manX, (int)manY);
-		if (callforhelp) help->write("No! Come back", (int)manX + 75, (int)manY);
+		int thex = E.Gcamera.convertX((int)manX, E.GetWindowWidth());
+		int they = E.Gcamera.convertY((int)manY, E.GetWindowHeight());
+
+		//std::cout << manY << "\t" << they << "\t" << E.GetWindowHeight() << std::endl;
+
+		tMan.displaySprite(
+					    thex, 
+					    they
+					    );
+		if (callforhelp) help->write(
+							    "No! Come back", 
+							    thex + 75, 
+							    they
+							    );
 	}
 	void Destroy() {
 		tMan.destroy();
