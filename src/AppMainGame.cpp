@@ -58,7 +58,7 @@ void AppMainGame::OnLoop() {
 	//std::cout << "mousea: " << x << "\t " <<  y << std::endl;
 	//std::cout << "dude  : " << (int)dudebro.manX << "\t " << (int)dudebro.manY << std::endl;
 	//std::cout << "camera: " << E.Gcamera.getX() << "\t " << E.Gcamera.getY() << std::endl;
-	dudebro.Follow(x - 50, y + 50);
+	dudebro.Follow(x - 50, y + 100);
 
 	counter++;
 }

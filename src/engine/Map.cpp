@@ -30,7 +30,7 @@ void Map::render() {
 	for( int i = 0; i < mapHeight; i++) {
 		for ( int j = 0; j < mapWidth; j++) {
 			int tileX = j * tileSize;
-			int tileY = (mapHeight - i) * tileSize;
+			int tileY = (mapHeight + 1 - i) * tileSize;
 			int sourceX = textureArray[i][j] * tileSize;
 			int sourceY = 0;
 
