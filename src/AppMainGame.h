@@ -5,12 +5,14 @@
 #include "engine/E.h"
 #include "engine/Text.h"
 #include "engine/Sprite.h"
+#include "engine/Map.h"
 #include "Man.h"
 
 class AppMainGame : public AppState {
 private:
 	//static AppMainGame Instance
 	int StartTime;
+	Map level;
 
 public:
 	AppMainGame();

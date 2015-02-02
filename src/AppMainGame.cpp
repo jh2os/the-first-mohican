@@ -4,6 +4,7 @@
 
 AppMainGame::AppMainGame() {
 
+	level.loadMapSheet("assets/bitmaps/level1color.png");
 	taggedImg.LoadTexture("assets/bitmaps/x.bmp");
 	//tMan.LoadTexture("assets/bitmaps/man.bmp");
 	
@@ -35,6 +36,21 @@ void AppMainGame::OnLoop() {
 	int x = 0;
 	int y =0;
 	SDL_GetMouseState(&x, &y);
+
+	if ( x > 540 ) {
+		E.Gcamera.move(5, 0);
+	}
+	else if (x < 100) {
+		E.Gcamera.move(-5,0);
+	}
+
+	if ( y > 380) {
+		E.Gcamera.move(0, -5);
+	}
+	else if ( y < 100) {
+		E.Gcamera.move(0, 5);
+	}
+
 	//std::cout << x << " " << y << std::endl;
 	//std::cout << "mouseb: " << x << "\t " <<  y << std::endl;
 	x = E.Gcamera.getX() + x;
@@ -42,12 +58,14 @@ void AppMainGame::OnLoop() {
 	//std::cout << "mousea: " << x << "\t " <<  y << std::endl;
 	//std::cout << "dude  : " << (int)dudebro.manX << "\t " << (int)dudebro.manY << std::endl;
 	//std::cout << "camera: " << E.Gcamera.getX() << "\t " << E.Gcamera.getY() << std::endl;
-	dudebro.Follow(x, y);
+	dudebro.Follow(x - 50, y + 50);
 
 	counter++;
 }
 
 void AppMainGame::OnRender() {
+	
+	level.render();
 
 	std::ostringstream convert;
 	convert << E.fps.GetFPS();//counter;
