@@ -4,10 +4,9 @@
 
 AppMainGame::AppMainGame() {
 
-	level.loadMapSheet("assets/bitmaps/level1color.png");
+	level.loadMapSheet("assets/bitmaps/opengamartrpgtile.png");
 	taggedImg.LoadTexture("assets/bitmaps/x.bmp");
-	//tMan.LoadTexture("assets/bitmaps/man.bmp");
-	
+		
     SDL_Color red = {255, 0, 0};
     text = new Text("Transformers-Movie.ttf", 50, red);
 
@@ -20,6 +19,7 @@ AppMainGame::AppMainGame() {
     count = 1;
     angle = 0.0;
     counter = 0;
+
 }
 
 void AppMainGame::OnDeactivate() {
@@ -64,7 +64,7 @@ void AppMainGame::OnLoop() {
 }
 
 void AppMainGame::OnRender() {
-	
+	level.setDisplaySize(100);
 	level.render();
 
 	std::ostringstream convert;
