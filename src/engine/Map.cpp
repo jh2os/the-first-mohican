@@ -3,20 +3,44 @@
 Map::Map() {
 	tileSize = 8;
 	displaySize = 100;
-	int row1[] = {0,0, 1,0, 2,0, 1,1, 0,0, 1,0, 2,0, 1,1};
-	int row2[] = {0,1, 1,1, 2,1, 1,1, 0,1, 1,1, 2,1, 1,1};
-	int row3[] = {0,2, 1,2, 2,2, 1,1, 0,2, 1,2, 2,2, 1,1};
-	int row4[] = {0,3, 1,3, 2,3, 1,1, 0,3, 1,3, 2,3, 1,1};
-	int row5[] = {0,4, 1,4, 2,4, 1,1, 0,4, 1,4, 2,4, 1,1};
-	int row6[] = {0,5, 1,5, 2,5, 1,1, 0,5, 1,5, 2,5, 1,1};
-	int row7[] = {1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1};
-	textureArray.push_back(std::vector<int> (row1, row1 + sizeof(row1) / sizeof(int)) );
-	textureArray.push_back(std::vector<int> (row2, row2 + sizeof(row2) / sizeof(int)) );
-	textureArray.push_back(std::vector<int> (row3, row3 + sizeof(row3) / sizeof(int)) );
-	textureArray.push_back(std::vector<int> (row4, row4 + sizeof(row4) / sizeof(int)) );
-	textureArray.push_back(std::vector<int> (row5, row5 + sizeof(row5) / sizeof(int)) );
-	textureArray.push_back(std::vector<int> (row6, row6 + sizeof(row6) / sizeof(int)) );
-	textureArray.push_back(std::vector<int> (row7, row7 + sizeof(row7) / sizeof(int)) );
+	int mapwidth;
+	int mapheight;
+	/*int mrow[mapheight][mapwidth];
+	int mrow[0] =  {0,0, 1,0, 2,0, 1,1, 0,0, 1,0, 2,0, 1,1};
+	int mrow[1] =  {0,1, 1,1, 2,1, 1,1, 0,1, 1,1, 2,1, 1,1};
+	int mrow[2] =  {0,2, 1,2, 2,2, 1,1, 0,2, 1,2, 2,2, 1,1};
+	int mrow[3] =  {0,3, 1,3, 2,3, 1,1, 0,3, 1,3, 2,3, 1,1};
+	int mrow[4] =  {0,4, 1,4, 2,4, 1,1, 0,4, 1,4, 2,4, 1,1};
+	int mrow[5] =  {0,5, 1,5, 2,5, 1,1, 0,5, 1,5, 2,5, 1,1};
+	int mrow[6] =  {1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1, 1,1};
+
+	for( int i = 0; i < mapheight; i++) {
+		textureArray.push_back(std::vector<int> ());
+	}*/
+	
+	FILE* FileHandle = fopen((char*)"assets/maps/1.level", "r");
+
+	if (FileHandle == NULL) {
+		std::cout << "Could not open level file" << std::endl;
+	}
+
+	fscanf(FileHandle, "%dx%d\n", &mapwidth, &mapheight);
+	for(int my = 0; my < mapheight; my++) {
+		std::vector<int> currentrow;
+		for(int mx = 0; mx < mapwidth; mx++) {
+			int sheetx;
+			int sheety;
+			fscanf(FileHandle, "%d,%d ", &sheetx, &sheety);
+			currentrow.push_back(sheetx);
+			currentrow.push_back(sheety);
+		}
+		fscanf(FileHandle, "\n");
+		textureArray.push_back(currentrow);
+		currentrow.clear();
+	}
+
+	fclose(FileHandle);
+
 }
 
 void Map::loadMapSheet(std::string filename) {
